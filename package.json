@@ -10,7 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "@vueuse/core": "^13.2.0",
     "nuxt": "^3.17.4",
+    "reka-ui": "^2.2.1",
+    "tailwindcss": "^4.1.7",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1"
   },
