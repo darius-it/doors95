@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <h1>Kirby-Paris Hydra Simulation</h1>
-    <button @click="cutHead">Cut Head</button>
     <div ref="cyContainer" class="cy" />
   </div>
 </template>
@@ -16,10 +15,35 @@ let nodeId = 0
 let baseNodeSize = ref(30)
 let growInterval = null
 
-// Create a complex hydra tree for a longer game
+const colorPalette = [
+  '#0074D9', '#FF4136', '#2ECC40', '#FF851B',
+  '#7FDBFF', '#B10DC9', '#FFDC00', '#001f3f',
+  '#39CCCC', '#3D9970'
+]
+
+function assignNodeColor(id, graph, nodeMap) {
+  const usedColors = new Set()
+  const neighbors = graph.filter(edge => edge.data.source === id || edge.data.target === id)
+
+  for (const edge of neighbors) {
+    const neighborId = edge.data.source === id ? edge.data.target : edge.data.source
+    const neighbor = nodeMap.get(neighborId)
+    if (neighbor && neighbor.colorIndex !== undefined) {
+      usedColors.add(neighbor.colorIndex)
+    }
+  }
+
+  for (let i = 0; i < colorPalette.length; i++) {
+    if (!usedColors.has(i)) return i
+  }
+
+  return 0
+}
+
 function createHydra() {
   const nodes = []
   const edges = []
+  const nodeMap = new Map()
 
   let idCounter = 0
   function newNodeId() {
@@ -27,22 +51,33 @@ function createHydra() {
   }
 
   const rootId = newNodeId()
-  nodes.push({ data: { id: rootId, label: `😦 ${rootId}` } })
+  const rootColorIndex = 0
+  nodes.push({ data: { id: rootId, label: `😦 ${rootId}`, color: colorPalette[rootColorIndex] } })
+  nodeMap.set(rootId, { colorIndex: rootColorIndex })
 
   for (let i = 0; i < 3; i++) {
     const level1Id = newNodeId()
-    nodes.push({ data: { id: level1Id, label: `😦 ${level1Id}` } })
     edges.push({ data: { id: `e${idCounter++}`, source: rootId, target: level1Id } })
+
+    const colorIndex = assignNodeColor(level1Id, edges, nodeMap)
+    nodes.push({ data: { id: level1Id, label: `😦 ${level1Id}`, color: colorPalette[colorIndex] } })
+    nodeMap.set(level1Id, { colorIndex })
 
     for (let j = 0; j < 2; j++) {
       const level2Id = newNodeId()
-      nodes.push({ data: { id: level2Id, label: `😦 ${level2Id}` } })
       edges.push({ data: { id: `e${idCounter++}`, source: level1Id, target: level2Id } })
+
+      const colorIndex = assignNodeColor(level2Id, edges, nodeMap)
+      nodes.push({ data: { id: level2Id, label: `😦 ${level2Id}`, color: colorPalette[colorIndex] } })
+      nodeMap.set(level2Id, { colorIndex })
 
       for (let k = 0; k < 2; k++) {
         const leafId = newNodeId()
-        nodes.push({ data: { id: leafId, label: `😦 ${leafId}` } })
         edges.push({ data: { id: `e${idCounter++}`, source: level2Id, target: leafId } })
+
+        const colorIndex = assignNodeColor(leafId, edges, nodeMap)
+        nodes.push({ data: { id: leafId, label: `😦 ${leafId}`, color: colorPalette[colorIndex] } })
+        nodeMap.set(leafId, { colorIndex })
       }
     }
   }
@@ -51,14 +86,13 @@ function createHydra() {
   return { nodes, edges }
 }
 
-function cutHead() {
-  const leaves = cy.nodes().filter(n => n.outgoers('edge').length === 0)
-  if (leaves.length === 0) {
-    alert('No heads to cut!')
+function cutHead(head) {
+  if (!head) return
+  if (head.outgoers('edge').length > 0) {
+    alert('Only leaf nodes (heads) can be cut!')
     return
   }
 
-  const head = leaves[0]
   const parent = head.incomers('node')[0]
   const grandparent = parent?.incomers('node')[0]
 
@@ -69,7 +103,7 @@ function cutHead() {
 
   cy.remove(head)
 
-  // Reset node size after cut
+  // Reset node size
   baseNodeSize.value = 30
   cy.nodes().forEach(node => {
     node.style('width', baseNodeSize.value)
@@ -86,7 +120,9 @@ function cloneSubtree(node) {
     const oldId = n.id()
     const newId = `n${++nodeId}`
     idMap.set(oldId, newId)
-    subtree.push({ data: { id: newId, label: `😦 ${newId}` } })
+    const label = `😦 ${newId}`
+    const colorIndex = Math.floor(Math.random() * colorPalette.length)
+    subtree.push({ data: { id: newId, label, color: colorPalette[colorIndex] } })
 
     const children = n.outgoers('edge').targets()
     for (const child of children) {
@@ -136,7 +172,7 @@ onMounted(() => {
       {
         selector: 'node',
         style: {
-          'background-color': '#0074D9',
+          'background-color': 'data(color)',
           'label': 'data(label)',
           'font-size': 16,
           'text-valign': 'center',
@@ -168,13 +204,13 @@ onMounted(() => {
     }
   })
 
-  // Initialize node size
+  // Set initial node size
   cy.nodes().forEach(node => {
     node.style('width', baseNodeSize.value)
     node.style('height', baseNodeSize.value)
   })
 
-  // Gradually increase node size over time
+  // Node growth
   growInterval = setInterval(() => {
     baseNodeSize.value *= 2
     cy.nodes().forEach(node => {
@@ -182,6 +218,12 @@ onMounted(() => {
       node.style('height', baseNodeSize.value)
     })
   }, 500)
+
+  // Handle node clicks
+  cy.on('tap', 'node', (event) => {
+    const node = event.target
+    cutHead(node)
+  })
 })
 
 onUnmounted(() => {
