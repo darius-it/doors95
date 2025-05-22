@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white font-sans">
+  <div class="min-h-screen bg-white">
     <div class="flex h-full">
       <!-- E-Mail-Liste -->
       <aside class="w-1/3 bg-white border-r border-gray-300 overflow-y-auto">
@@ -23,7 +23,7 @@
                 {{ mail.sender }}
               </span>
             </div>
-            <div :class="['text-sm truncate', mail.read ? 'text-gray-600' : 'text-gray-800']">
+            <div :class="['text-sm truncate p-1', mail.read ? 'text-gray-600' : 'text-gray-800']">
               {{ mail.subject }}
             </div>
           </li>
@@ -35,7 +35,8 @@
         <div v-if="selectedMail" class="space-y-4">
           <!-- Betreff und Datum oberhalb des Inhalts -->
           <div>
-            <h2 class="text-2xl font-bold text-gray-900">{{ selectedMail.subject }}</h2>
+            <h2 class="text-2xl font-bold text-gray-900">From: {{ selectedMail.sender }}</h2>
+            <p class="text-sm text-gray-500">{{ selectedMail.subject }}</p>
             <p class="text-sm text-gray-500">{{ selectedMail.date }}</p>
           </div>
           <hr class="my-2 border-gray-300" />
