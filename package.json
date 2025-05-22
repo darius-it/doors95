@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "@vueuse/core": "^13.2.0",
+    "cytoscape": "^3.32.0",
     "nuxt": "^3.17.4",
     "reka-ui": "^2.2.1",
     "tailwindcss": "^4.1.7",
