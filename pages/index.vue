@@ -7,7 +7,7 @@
       @clickInsideWindow="setLastClickedWindow" 
       @close="closeWindow"
     >
-      hallo
+      <AppsMail />
     </DesktopWindow>
 
     <DesktopWindow 
@@ -18,55 +18,63 @@
       @close="closeWindow"
     />
 
-    <div id="row-1" class="flex flex-row items-center gap-6">
+    <div id="row-1" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
         windowName="Thunderbird"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Browser"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
     </div>
 
-    <div id="row-2" class="flex flex-row items-center gap-6">
+    <div id="row-2" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>

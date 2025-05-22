@@ -1,6 +1,6 @@
 <template>
-  <div class="gap-4 inline-block" @click="openWindow">
-    <div class="w-full h-full">
+  <div class="gap-1 flex flex-col items-center justify-center" @click="openWindow">
+    <div class="self-center flex flex-col items-center justify-center">
       <slot />
     </div>
 
