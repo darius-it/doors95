@@ -73,7 +73,7 @@ export const useMissionsStore = defineStore("missions", {
       this.infectionLevel += rate;
 
       // trigger blue screen if infection level is 95+
-      if (this.infectionLevel <= 95) {
+      if (this.infectionLevel >= 95) {
         this.infectionLevel = 100;
         const payloadsStore = usePayloadsStore();
 
