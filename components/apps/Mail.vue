@@ -4,22 +4,15 @@
       <!-- E-Mail-Liste -->
       <aside class="w-1/3 bg-[#b3b3b3] border-r border-gray-300 overflow-y-auto">
         <ul>
-          <li
-            v-for="mail in mails"
-            :key="mail.id"
-            @click="selectMail(mail)"
-            :class="[
-              'p-4 cursor-pointer border-b border-gray-200 hover:bg-gray-400 transition',
-              mail.id === selectedMail?.id ? 'bg-[#c4c4c4]' : '',
-              mail.read ? 'bg-[#b3b3b3]' : 'bg-[#b3b3b3]'
-            ]"
-          >
+          <li v-for="mail in mails" :key="mail.id" @click="selectMail(mail)" :class="[
+            'p-4 cursor-pointer border-b border-gray-200 hover:bg-gray-400 transition',
+            mail.id === selectedMail?.id ? 'bg-[#c4c4c4]' : '',
+            mail.read ? 'bg-[#b3b3b3]' : 'bg-[#b3b3b3]'
+          ]">
             <div class="flex items-center">
+              <span v-if="!mail.read" class="w-1.5 h-1.5 bg-gray-900 rounded-full mr-2 mt-1"></span>
               <span
-                v-if="!mail.read"
-                class="w-1.5 h-1.5 bg-gray-900 rounded-full mr-2 mt-1"
-              ></span>
-              <span :class="mail.read ? 'text-xs truncate p-1 font-normal text-gray-800' : ' text-xs  p-1 font-semibold text-gray-900'">
+                :class="mail.read ? 'text-xs truncate p-1 font-normal text-gray-800' : ' text-xs  p-1 font-semibold text-gray-900'">
                 {{ mail.sender }}
               </span>
             </div>
@@ -40,19 +33,19 @@
             <p class="text-xs text-gray-500">{{ selectedMail.date }}</p>
           </div>
           <hr class=" my-2 border-gray-300 mb-2 pb-2" />
-              <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body1 }}</p>
-              <div v-if="selectedMail.link">
-                <button class="text-xs link-button" @click="handleClick(selectedMail.id)">
-                  {{ selectedMail.link }}
-                </button>
-              </div>
-              <div v-if="selectedMail.body2">
-                <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body2 }}</p>
-              </div>
-              
-            
+          <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body1 }}</p>
+          <div v-if="selectedMail.link">
+            <button class="text-xs link-button" @click="handleClick(selectedMail.id)">
+              {{ selectedMail.link }}
+            </button>
+          </div>
+          <div v-if="selectedMail.body2">
+            <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body2 }}</p>
+          </div>
 
-          
+
+
+
         </div>
         <div v-else class="text-gray-500 text-center mt-20">
           Select a Mail.
@@ -62,46 +55,13 @@
   </div>
 </template>
 
+
+
+
+
+
 <script setup>
-import VueTypewriterEffect from 'vue-typewriter-effect'
-
-
-/*
-import { ref, computed } from 'vue';
-
-const emailBody = 'Bitte klicke hier: {{http://m1crosoft-security-check.insecure-domain.xyz}}.';
-
-const parsedBody = computed(() => parseEmailBody(emailBody));
-
-function handleButtonClick(buttonName) {
-  console.log(`${buttonName} wurde geklickt`);
-  //location.reload()
-}
-
-function parseEmailBody(body) {
-  console.log(`${body.replace(/{{(.*?)}}/g, (match, buttonName) => {
-    return `<button class="mail-button" onclick="handleButtonClick('${buttonName}')">${buttonName}</button>`;
-  })}`)
-  
-  return body.replace(/{{(.*?)}}/g, (match, buttonName) => {
-    return `<button class="mail-button" onclick="handleButtonClick('${buttonName}')">${buttonName}</button>`;
-  });
-}*/
-</script>
-
-
-
-
-<script>
-
-
-export default {
-  
-
-  name: 'MailClient',
-  data() {
-    return {
-      mails: [
+const mails = ref([
   {
     id: 1,
     sender: 'security-alert@m1crosoft-support.com',
@@ -117,7 +77,7 @@ export default {
 
       If this wasn't you, please click the link below immediately to secure your account:  
       `,
-    link:`http://m1crosoft-security-check.insecure-domain.xyz`,
+    link: `http://m1crosoft-security-check.insecure-domain.xyz`,
     body2: `
       Thank you,  
       Microsoft Security Team`,
@@ -217,28 +177,48 @@ Good luck!
 The Amazon Prize Team`,
     read: false,
   }
-],
-      selectedMail: null,
-    };
-  },
-  methods: {
-    selectMail(mail) {
-      this.selectedMail = mail;
-      if (!mail.read) {
-        mail.read = true;
+]);
+
+const selectedMail = ref(null);
+const missionsStore = useMissionsStore();
+let wrongLinkClicked = false;
+
+function selectMail(mail) {
+  selectedMail.value = mail;
+  if (!mail.read) {
+    mail.read = true;
+  }
+
+  //handle correct mail
+  if (mail.id == 5) {
+    setTimeout(() => {
+      if (selectedMail.value.id == 5 && !wrongLinkClicked) {
+        missionsStore.triggerEvent("email_opened");
+
+        setTimeout(() => {
+          if (selectedMail.value.id == 5 && !wrongLinkClicked) {
+            missionsStore.triggerEvent("email_opened_delay");
+          }
+        }, 3500);
       }
-    },
-    handleClick(id) {
-      console.log(id);
-      // Deine Funktion hier
-    },
-  },
-};
+    }, 6300);
+  }
+}
+
+function handleClick(id) {
+  console.log(id);
+  // Deine Funktion hier
+  //if id 5 - fake launcher
+  //otherwise 
+  if (id == 5) {
+    wrongLinkClicked = true
+    //TODO: call fake mc launcher
+  }
+}
 </script>
 
 
 <style scoped>
-
 /*
 .mail-content {
   font-size: 0.85rem; 
@@ -255,6 +235,6 @@ The Amazon Prize Team`,
   padding: 0.5rem 0rem;
   cursor: pointer;
   text-decoration: underline;
-  
+
 }
 </style>
