@@ -21,7 +21,7 @@
         <google v-if="active_page.name == 'Google'"/>
         <kanban v-if="active_page.name == 'Kanban'"/>
         <dino v-if="active_page.name == 'Dino'"/>
-        <minecraftsearch v-if="active_page.name == 'MinecraftSearch'"/>
+        <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
     </div>
 </template>
 
@@ -36,7 +36,7 @@ const web_pages=ref([
     {name: "Google", url: "www.google.com"},
     {name: "Kanban", url: "www.kanban.com"},
     {name: "Dino", url: "www.dino.com"},
-    {name: "MinecraftSearch", url: "www.google.com/search=minecraft"}])
+    {name: "minecraft - Google search", url: "www.google.com/search=minecraft"}])
 
 const open_pages = ref(new Array())
 const active_page = ref({name: "Google", url: "www.google.com"})

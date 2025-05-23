@@ -34,13 +34,12 @@
 <script>
 import emitter from "@/components/misc/eventHandler"
 
-
 export default {
 
   data() {
     return {
       query: '',
-      validTerms: ['google', 'minecraft', 'free minecraft'],
+      validTerms: ['google', 'minecraft', 'free minecraft', 'minecraft download'],
       suggestions: [],
       highlightedIndex: -1,
       searchResult: ''
@@ -72,8 +71,12 @@ export default {
       const input = this.query.toLowerCase()
       
       if(input.match(".*minecraft.*") != null && input != ""){
-        emitter.emit("openPage", "MinecraftSearch")
+        emitter.emit("openPage", "minecraft - Google search")
         emitter.emit("closePage", "Google")
+      }else if(input.match(".*google.*") != null && input != ""){
+        console.log("add blue screen here");
+      }else if(input == ""){
+
       }else{
         emitter.emit("openPage", "Dino")
         emitter.emit("closePage", "Google")
