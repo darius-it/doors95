@@ -41,9 +41,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 
-const missionInfo = ref({
-  infectionLevel: 50, // Set this to a value between)
-})
+const missionInfo = useMissionsStore();
 
 const scanning = ref(false)
 const progress = ref(0)
