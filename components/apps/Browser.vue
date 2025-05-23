@@ -22,6 +22,10 @@
         <kanban v-if="active_page.name == 'Kanban'"/>
         <dino v-if="active_page.name == 'Dino'"/>
         <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
+        <mcr1 v-if="active_page.name == 'Minecraft'"/>
+        <mcr2 v-if="active_page.name == 'Minceraft'"/>
+        <mcr3 v-if="active_page.name == 'Minecroft'"/>
+        <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
     </div>
 </template>
 
@@ -31,12 +35,20 @@ import google from '../browserpages/google'
 import kanban from '../browserpages/kanban'
 import dino from '../browserpages/dino'
 import minecraftsearch from '../browserpages/minecraftsearch'
+import mcr1 from '../browserpages/mcr1'
+import mcr2 from '../browserpages/mcr2'
+import mcr3 from '../browserpages/mcr3'
+import mcr4 from '../browserpages/mcr4'
 
 const web_pages=ref([
     {name: "Google", url: "www.google.com"},
     {name: "Kanban", url: "www.kanban.com"},
     {name: "Dino", url: "www.dino.com"},
-    {name: "minecraft - Google search", url: "www.google.com/search=minecraft"}])
+    {name: "minecraft - Google search", url: "www.google.com/search=minecraft"},
+    {name: "Minecraft", url: "www.minecraft.com"},
+    {name: "Minceraft", url: "www.minceraft.com"},
+    {name: "Minecroft", url: "www.minecroft.com"},
+    {name: "Minecraft Online", url: "www.minecraft-online.com"}])
 
 const open_pages = ref(new Array())
 const active_page = ref({name: "Google", url: "www.google.com"})
