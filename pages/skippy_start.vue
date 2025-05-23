@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!installed" class="skippy-overlay-blocker">
+  <div v-if="!installed" class="skippy-overlay-blocker" style="z-index:9500; position:fixed; inset:0;">
     <div class="skippy-window95 skippy-window95-large">
       <div class="skippy-titlebar">
         <span>System Setup</span>
@@ -23,11 +23,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref, watch, defineEmits } from 'vue'
 const installed = ref(false)
 const installing = ref(false)
 const loadingPercent = ref(0)
 const fading = ref(false)
+const emit = defineEmits(['skippy-installed'])
 
 function startInstall() {
   installing.value = true
@@ -42,6 +43,7 @@ function startInstall() {
       clearInterval(interval)
       setTimeout(() => {
         installed.value = true
+        emit('skippy-installed')
       }, 1200) // match fade duration
     }
   }, 180)

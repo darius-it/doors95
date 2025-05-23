@@ -59,6 +59,8 @@
       </DesktopIcon>
     </div>
 
+    <!-- Skippy Start Overlay (z-[9500]) -->
+    <SkippyStart v-if="!skippyInstalled" @skippy-installed="onSkippyInstalled" style="z-index:9500; position:fixed; inset:0;" />
     <!-- Underlay Window in lower right -->
     <div v-if="clippyVisible" class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
@@ -67,7 +69,7 @@
           <ClippySpeechBubble ref="clippyBubble" />
         </div>
         <img src="/textures/clippy_placeholder.png" alt="Clippy"
-          class="w-[14rem] h-[14rem] mb-2 cursor-pointer transition-transform duration-150"
+          class="w-[14rem] h-[14rem] mb-2 cursor-pointer transition-transform duration-300"
           :style="{ transform: `scale(${clippyScale})` }" @click="showClippyBubble" />
       </div>
     </div>
@@ -77,14 +79,16 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
+import SkippyStart from '~/pages/skippy_start.vue';
 
 const currentlyOpenWindows = useOpenWindowsStore();
 
 const clippyBubble = ref();
 const colorShiftEnabled = ref(false);
 // Add scale ref for animation
-const clippyScale = ref(1);
-const clippyVisible = ref(true);
+const clippyScale = ref(0); // Start hidden
+const clippyVisible = ref(false);
+const skippyInstalled = ref(false);
 
 function showClippyBubble() {
   if (
@@ -118,9 +122,19 @@ function animateClippy() {
 
 function showClippy() {
   clippyVisible.value = true;
+  clippyScale.value = 0;
+  setTimeout(() => {
+    clippyScale.value = 1;
+  }, 10); 
 }
 function hideClippy() {
   clippyVisible.value = false;
+  clippyScale.value = 0;
+}
+
+function onSkippyInstalled() {
+  skippyInstalled.value = true;
+  showClippy();
 }
 
 // Expose to console for debugging
