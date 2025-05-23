@@ -11,11 +11,11 @@
           v-model="nameInput"
           class="skippy-input"
           type="text"
-          placeholder="Enter your name..."
+          placeholder="Type here..."
           @keyup.enter="submitName"
           autofocus
         />
-        <UiButton :disabled="!nameInput.trim()" @click="submitName">Confirm</UiButton>
+        <UiButton class="skippy-btn" :disabled="!nameInput.trim()" @click="submitName">Confirm</UiButton>
       </div>
     </div>
   </div>
@@ -139,5 +139,18 @@ function submitName() {
 .skippy-input:focus {
   border: 2px solid #000181;
   background: #fff;
+}
+.skippy-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 0 auto;
+  display: block;
 }
 </style>

@@ -2,7 +2,7 @@ import { defineStore } from "pinia"
 
 export const useMissionsStore = defineStore("missions", {
   state: () => ({
-    userName: "Little Billy",
+    userName: "",
     infectionLevel: 0,
     latest_trigger_triggered: "skippy_installed",
 

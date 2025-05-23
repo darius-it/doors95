@@ -1,5 +1,5 @@
 <template>
-  <div class="text-[0.65rem] tracking-wider border-t border-l border-r border-b border-[#08080E] border-r-[#FCFCFC] border-b-[#FCFCFC] px-4 py-1.5">
+  <div class="text-[0.65rem] tracking-wider">
     {{ time }}
   </div>
 </template>
