@@ -14,6 +14,7 @@
 import { ref, computed, onMounted, watch } from 'vue'
 
 const percentage = ref(0)
+definePageMeta({layout:false})
 
 // Display value rounded to two decimals
 const displayPercentage = computed(() => percentage.value.toFixed(2))
