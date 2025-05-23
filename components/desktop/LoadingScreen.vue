@@ -95,7 +95,6 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-family: 'Tahoma', 'Geneva', sans-serif;
   transition: opacity 0.8s cubic-bezier(.4,2,.6,1);
   opacity: 1;
 }
@@ -142,7 +141,7 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 10px;
   border-bottom: 2px solid #fff;
 }
 
@@ -218,7 +217,7 @@ onMounted(() => {
 }
 
 .loading-text {
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 18px;
   color: #222;
   text-shadow: 1px 1px 0 #fff;
@@ -247,7 +246,7 @@ onMounted(() => {
 }
 
 .loading-hint {
-  font-size: 13px;
+  font-size: 10px;
   color: #444;
   margin-top: 8px;
   text-shadow: 1px 1px 0 #fff;
