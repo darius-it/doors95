@@ -35,7 +35,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue"
+const bootChime = new Audio("/audio/bootsound.mp3")
+bootChime.volume = 1.0
+
+onMounted(() => {
+  // Play boot chime when BIOS screen appears
+  bootChime.play().catch(() => {
+    // Autoplay might be blocked; ignore error
+  })
+})
 
 const stage = ref(0) // 0: BIOS, 1: Loading, 2: Fade out, 3: Gone
 const progress = ref(0)
@@ -66,7 +75,7 @@ onMounted(() => {
       // Start loading progress (faster)
       const interval = setInterval(() => {
         if (progress.value < 100) {
-          progress.value += Math.random() * 20 // increase step for faster progress
+          progress.value += Math.random() * 18 // increase step for faster progress
           if (progress.value > 100) progress.value = 100
         }
         if (progress.value >= 100) {
