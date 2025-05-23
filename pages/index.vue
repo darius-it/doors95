@@ -55,8 +55,9 @@
         <div class="flex items-center mr-2" style="height: 14rem;">
           <ClippySpeechBubble ref="clippyBubble" />
         </div>
-        <img src="/textures/clippy_placeholder.png" alt="Clippy" class="w-[14rem] h-[14rem] mb-2 cursor-pointer"
-          @click="showClippyBubble" />
+        <img src="/textures/clippy_placeholder.png" alt="Clippy"
+          class="w-[14rem] h-[14rem] mb-2 cursor-pointer transition-transform duration-150"
+          :style="{ transform: `scale(${clippyScale})` }" @click="showClippyBubble" />
       </div>
     </div>
   </div>
@@ -67,6 +68,9 @@
   import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
 
   const clippyBubble = ref();
+
+  // Add scale ref for animation
+  const clippyScale = ref(1);
 
   function showClippyBubble() {
     if (
@@ -83,15 +87,26 @@
   }
 
   function setClippyText(newText: string) {
+    animateClippy()
     if (clippyBubble.value && typeof clippyBubble.value.setText === 'function') {
       clippyBubble.value.setText(newText);
       clippyBubble.value.showBubble();
     }
   }
 
+  // Animate Clippy: scale up quickly, then back to normal
+  function animateClippy() {
+    clippyScale.value = 1.36;
+    setTimeout(() => {
+      clippyScale.value = 1;
+    }, 180);
+  }
+
   // Expose to console for debugging
   // @ts-ignore
   window.setClippyText = setClippyText;
+  // @ts-ignore
+  window.animateClippy = animateClippy;
 
   const currentlyOpenWindows = useOpenWindowsStore();
 
