@@ -53,7 +53,7 @@ export default {
       // payloadsStore.
       setTimeout(() => {
         payloadsStore.bluescreen = true
-      }, 1000)
+      }, 900)
     }
   },
 };
