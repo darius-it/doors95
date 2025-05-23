@@ -13,6 +13,11 @@
       @close="closeWindow">
       <AppsDinoGame />
     </DesktopWindow>
+    <DesktopWindow name="Antivirus" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsAntivirus />
+    </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -23,7 +28,7 @@
         </DesktopIcon>
         <DesktopIcon windowName="Browser" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
-          <IconFolder />
+          <img src="/icons/browser.png" alt="Antivirus Icon" class="w-14 h-14 mb-0.5" />
         </DesktopIcon>
       </div>
       <!-- Right-aligned icon -->
@@ -36,9 +41,9 @@
     </div>
 
     <div id="row-2" class="flex flex-row justify-between items-center w-full max-w-md gap-4">
-      <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
+      <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
         class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
+        <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
       </DesktopIcon>
       <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
         class="flex flex-col items-center min-w-[16px] flex-1">
