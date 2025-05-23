@@ -159,7 +159,7 @@ body {
 }
 
 button {
-  background: #f8f9fa;
+  background: lightgray;
   border: 1px solid #f8f9fa;
   border-radius: 4px;
   padding: 10px 20px;

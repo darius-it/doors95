@@ -1,32 +1,34 @@
 <template ref="Browser">
-    <div class="top-bar w-full min-w-[60vh]">
-        <ul>
-            <li v-for="p in open_pages">
-                <button @click="makeActive(p.name)">
-                    {{p.name}}
-                </button>
-                <button @click="close(p.name)">
-                    X
-                </button>
-            </li>
-            <li>
-                <button @click="open('Google')">
-                    +
-                </button>
-            </li>
-        </ul>
-    </div>
-    <div class="w-full min-h-[55vh] min-w-[60vw] web-page">
-        <blank v-if="active_page.name == 'blank'"/>
-        <google v-if="active_page.name == 'Google'"/>
-        <kanban v-if="active_page.name == 'Kanban'"/>
-        <dino v-if="active_page.name == 'Dino'"/>
-        <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
-        <mcr1 v-if="active_page.name == 'Minecraft'"/>
-        <mcr2 v-if="active_page.name == 'Minceraft'"/>
-        <mcr3 v-if="active_page.name == 'Minecroft'"/>
-        <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
-        <inception v-if="active_page.name == 'Inception'"/>
+    <div class="bg">
+        <div class="top-bar w-full min-w-[60vh]">
+            <ul>
+                <li v-for="p in open_pages">
+                    <button @click="makeActive(p.name)">
+                        {{p.name}}
+                    </button>
+                    <button @click="close(p.name)">
+                        X
+                    </button>
+                </li>
+                <li>
+                    <button @click="open('Google')">
+                        +
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="w-full min-h-[55vh] min-w-[60vw] web-page">
+            <blank v-if="active_page.name == 'blank'"/>
+            <google v-if="active_page.name == 'Google'"/>
+            <kanban v-if="active_page.name == 'Kanban'"/>
+            <dino v-if="active_page.name == 'Dino'"/>
+            <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
+            <mcr1 v-if="active_page.name == 'Minecraft'"/>
+            <mcr2 v-if="active_page.name == 'Minceraft'"/>
+            <mcr3 v-if="active_page.name == 'Minecroft'"/>
+            <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
+            <inception v-if="active_page.name == 'Inception'"/>
+        </div>
     </div>
 </template>
 
@@ -114,5 +116,8 @@ li {
 }
 .web-page{
     margin:5px;
+}
+.bg{
+    background-color: #F5F5F5
 }
 </style>
