@@ -7,7 +7,6 @@
     </DesktopWindow>
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
-<<<<<<< HEAD
       @close="closeWindow" />
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
@@ -18,10 +17,6 @@
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
       <AppsAntivirus />
-=======
-      @close="closeWindow">
-      <AppsBrowser />
->>>>>>> dd8e1d7 (feat:implement Browser)
     </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
