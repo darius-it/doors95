@@ -31,6 +31,7 @@ const isDownloading = ref(false)
 const isComplete = ref(false)
 const progress = ref(0)
 let intervalId = null
+const windows = useOpenWindowsStore();
 
 const startDownload = () => {
   if (isDownloading.value || isComplete.value) return
@@ -46,6 +47,7 @@ const startDownload = () => {
       clearInterval(intervalId)
       isDownloading.value = false
       isComplete.value = true
+      windows.openWindow("Mincefrat Instaler");
     }
   }, 300)
 }

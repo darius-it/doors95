@@ -26,6 +26,7 @@ const buttonStyle = reactive({ position: 'absolute', top: '50%', left: '50%' })
 const downloadButton = ref(null)
 let intervalId = null
 let downloadInterval = null
+const windows = useOpenWindowsStore();
 
 const moveButton = () => {
   const maxWidth = window.innerWidth - 150
@@ -43,6 +44,7 @@ const startDownload = () => {
   downloadInterval = setInterval(() => {
     if (progress.value >= 100) {
       clearInterval(downloadInterval)
+      windows.openWindow("Mincefrat Instaler");
     } else {
       progress.value += 1
     }

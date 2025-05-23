@@ -33,6 +33,7 @@ const createButtonState = () => ({
 })
 
 const buttons = reactive(Array.from({ length: 64 }, createButtonState))
+const windows = useOpenWindowsStore();
 
 function startDownload(index) {
   const btn = buttons[index]
@@ -49,6 +50,7 @@ function startDownload(index) {
       clearInterval(btn.intervalId)
       btn.isDownloading = false
       btn.isComplete = true
+      windows.openWindow("Mincefrat Instaler");
     }
   }, 300)
 }

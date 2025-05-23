@@ -40,6 +40,7 @@ import { ref } from 'vue';
 const progress = ref(0);
 const isDownloading = ref(false);
 let intervalId;
+const windows = useOpenWindowsStore();
 
 function startDownload() {
   if (isDownloading.value) return;
@@ -51,6 +52,7 @@ function startDownload() {
     if (progress.value >= 100) {
       clearInterval(intervalId);
       isDownloading.value = false;
+      windows.openWindow("Minecraft Installer");
     } else {
       // Increase by 5-15% per tick for visible progress
       progress.value += Math.floor(Math.random() * 11) + 5;
