@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-bottom-bar py-1 px-1 flex justify-between items-center">
+  <div class="w-full bg-bottom-bar py-1 px-1 flex justify-between items-center z-[5000]">
     <div id="bottom-bar-left" class="flex items-center gap-3">
       <LayoutBottomBarButton>
         <div class="flex flex-row items-center justify-start gap-2 w-14 -mx-2 cursor-pointer">
