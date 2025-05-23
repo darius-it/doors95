@@ -1,5 +1,5 @@
 <template>
-  <!-- <DesktopLoadingScreen /> -->
+  <DesktopLoadingScreen />
   <div class="flex flex-col h-screen justify-between overflow-hidden">
     <slot />
     <LayoutBottomBar />
