@@ -153,7 +153,7 @@ function onSkippyInstalled() {
   showClippyOnInstall();
   setTimeout(() => {
     skippyInputVisible.value = true;
-  }, 4000);
+  }, 2700);
 
 }
 
