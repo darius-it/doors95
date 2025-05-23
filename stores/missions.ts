@@ -17,7 +17,7 @@ export const useMissionsStore = defineStore("missions", {
       "game_opened": "Congratulations, {name!} You completed the educational game—awesome job! [Here's your certificate](scam.com) — well earned!"
     },
     reactions: {
-      "negative1": "name}, you clicked a suspicious link. Be careful—this could bring viruses!",
+      "negative1": "{name}, you clicked a suspicious link. Be careful—this could bring viruses!",
       "negative2": "{name}, running that file looks risky. Let's avoid infections by staying cautious.",
       "negative3": "{name}, that website seems unsafe. Good call avoiding it to keep your system secure.",
       "negative4": "{name}, opening that app or popup could be dangerous. Staying alert protects your computer—well done!",
@@ -25,7 +25,5 @@ export const useMissionsStore = defineStore("missions", {
       "positive2": "{name}, you grabbed the right installer—smart and safe choice!",
       "positive3": "{name}, you avoided those ads like a pro. Your caution really pays off!"
     }
-        
   }),
-  actions: {}
 })
