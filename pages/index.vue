@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex flex-col gap-4">
+  <div class="p-4 flex flex-col gap-4 overflow-hidden">
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
