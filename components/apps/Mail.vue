@@ -65,7 +65,7 @@ export default {
 
 We've detected an unusual sign-in attempt on your Microsoft account.
 
-Device: Windows 10  
+Device: Doors 95  
 Location: Bucharest, Romania  
 Time: May 22, 2025, 3:43 AM
 
