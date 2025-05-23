@@ -82,7 +82,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body {
   background-color: #fff;
   font-family: Arial, sans-serif;
