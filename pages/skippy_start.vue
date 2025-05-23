@@ -7,7 +7,15 @@
       </div>
       <div class="skippy-window-content">
         <div class="skippy-text">Install Skippy to Start</div>
-        <button v-if="!installing" class="skippy-btn" @click="startInstall">Install Skippy</button>
+        <UiButton
+          v-if="!installing"
+          class="skippy-btn"
+          @click="startInstall"
+          style="font-size: 1.3rem; padding: 1rem 2.5rem;"
+        >
+          Install Skippy
+        </UiButton>
+        
         <div v-else class="skippy-loading">
           <div class="skippy-bar-outer">
             <div class="skippy-bar-inner" :style="{ width: loadingPercent + '%' }"></div>
@@ -136,7 +144,7 @@ function startInstall() {
   justify-content: center;
   margin-bottom: 0;
 }
-.skippy-btn {
+/* .skippy-btn {
   background: #222;
   color: #fff;
   border: none;
@@ -148,7 +156,7 @@ function startInstall() {
   transition: background 0.2s;
   margin: 0 auto;
   display: block;
-}
+} */
 .skippy-loading {
   display: flex;
   flex-direction: column;

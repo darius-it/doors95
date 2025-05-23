@@ -9,7 +9,7 @@ export const useMissionsStore = defineStore("missions", {
     mission_triggers: {
       "skippy_installed": "Hello! I'm Skippy, your desktop assistant. Nice work setting me up. What's your name?",
       "name_submitted": "Great to meet you too, {name}! You're off to a fantastic start—let's keep it going!",
-      "delay?": "Hey {name}, Johnny just sent you an email. Great job staying on top of things—go check your inbox!",
+      "delay": "Hey {name}, Johnny just sent you an email. Great job staying on top of things—go check your inbox!",
       "email_opened": "{name}, Johnny wants to play Minecraft. Let me help you install it. First, open your browser—you're doing great so far!",
       "browser_opened": "Next, search for the game. Stay sharp and watch out for fake links and viruses. You've got this!",
       "installer_downloaded": "{name}, you've downloaded the game—nice work! Go ahead and start the installer. Soon, you'll be playing like a pro!", 

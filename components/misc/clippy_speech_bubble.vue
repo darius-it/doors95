@@ -7,7 +7,7 @@
         :loop="false"
         :delay="0.01"
         :deleteSpeed="0"
-        :pauseFor="999999"
+        :pauseFor="999999999999"
         :key="clippyText"
         cursor=" "
         class="text-gray-800 whitespace-pre-line"
