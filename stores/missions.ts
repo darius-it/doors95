@@ -14,7 +14,7 @@ export const useMissionsStore = defineStore("missions", {
       "email_opened_delay": "{name}, maybe you should look for a download somewhere else!",
       "browser_opened": "Next, search for the game. Stay sharp and watch out for fake links and viruses. You've got this!",
       "installer_downloaded": "{name}, you've downloaded the game—nice work! Go ahead and start the installer. Soon, you'll be playing like a pro!", 
-      // or You’re a genius, {name}! You got the Minecraft .exe—nice work! You can run it now right from the Desktop!
+      // or You're a genius, {name}! You got the Minecraft .exe—nice work! You can run it now right from the Desktop!
       "game_opened": "Congratulations, {name!} You completed the educational game—awesome job! [Here's your certificate](scam.com) — well earned!"
     },
     reactions: {
@@ -27,7 +27,9 @@ export const useMissionsStore = defineStore("missions", {
       "positive3": "{name}, you avoided those ads like a pro. Your caution really pays off!",
       // "phishing1": "Well done, {name}, you avoided malicious links.",
       // "phishing2": "Phishing emails try to steal info or infect your pc by looking like trusted messages. Stay sharp!"
-      "phishing1": "Uh oh, {name}. That wasn’t the real installer—looks like a fake one may have infected your PC. Let’s run a scan to check things out."
+      "phishing1": "Uh oh, {name}. That wasn't the real installer — looks like a fake one may have infected your PC. Let's run your Antivirus to check things out.",
+      "phishing2": "Whoops, that site was dangerous. Some links can install malware just by clicking! Let's run a full Antivirus scan right away.",
+      "executable1": "Careful, {name}, that file type can be risky. Dangerous files like .exe or .msi from untrusted sources can carry malware. Always double-check them!",
     }
   }),
   actions: {

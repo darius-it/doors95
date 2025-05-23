@@ -213,24 +213,31 @@ function handleClick(id) {
   //otherwise 
   if (id == 1) {
     payloadStore.antRunner = true
-    missionsStore.triggerEvent("phishing1")
+    missionsStore.triggerEvent("phishing2")
   }
   else if (id == 2) {
     payloadStore.you_are_an_idiot = true
-    missionsStore.triggerEvent("phishing1")
+    missionsStore.triggerEvent("phishing2")
   }
   else if (id == 3) {
     payloadStore.bluescreen = true
-    missionsStore.triggerEvent("phishing1")
+    missionsStore.triggerEvent("phishing2")
   }
   else if (id == 5) {
     wrongLinkClicked = true
+
     //TODO: call fake mc launcher
+
+    missionsStore.triggerEvent("phishing1")
+    setTimeout(() => {
+      missionsStore.triggerEvent("phishing1_delay")
+    }, 4000)
+
 
   }
   else if (id == 6) {
     payloadStore.ransomware = true
-    missionsStore.triggerEvent("phishing1")
+    missionsStore.triggerEvent("phishing2")
   }
 }
 </script>
