@@ -84,7 +84,9 @@ export const useMissionsStore = defineStore("missions", {
         payloadsStore.ransomware = false;
         payloadsStore.you_are_an_idiot = false;
 
-        payloadsStore.bluescreen = true;
+        setTimeout(() => {
+          payloadsStore.bluescreen = true;
+        }, 300)
       }
     }
   }
