@@ -9,12 +9,19 @@
                     X
                 </button>
             </li>
+            <li>
+                <button @click="open('Google')">
+                    +
+                </button>
+            </li>
         </ul>
     </div>
     <div class="w-full min-h-[55vh] min-w-[60vw] web-page">
         <blank v-if="active_page.name == 'blank'"/>
         <google v-if="active_page.name == 'Google'"/>
         <kanban v-if="active_page.name == 'Kanban'"/>
+        <dino v-if="active_page.name == 'Dino'"/>
+        <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
     </div>
 </template>
 
@@ -22,13 +29,17 @@
 import blank from '../browserpages/blank'
 import google from '../browserpages/google'
 import kanban from '../browserpages/kanban'
+import dino from '../browserpages/dino'
+import minecraftsearch from '../browserpages/minecraftsearch'
 
 const web_pages=ref([
     {name: "Google", url: "www.google.com"},
-    {name: "Kanban", url: "www.kanban.com"}])
+    {name: "Kanban", url: "www.kanban.com"},
+    {name: "Dino", url: "www.dino.com"},
+    {name: "minecraft - Google search", url: "www.google.com/search=minecraft"}])
 
 const open_pages = ref(new Array())
-const active_page = ref({name: "blank", url: ""})
+const active_page = ref({name: "Google", url: "www.google.com"})
 
 function open(name) {
     web_pages.value.forEach(page => {
@@ -42,10 +53,11 @@ function close(name) {
     for (let i = 0; i < open_pages.value.length; i++) {
         if(open_pages.value[i].name == name){
             open_pages.value.splice(i, 1)
+            break
         }
     }
     if(open_pages.value.length == 0){
-        active_page.value = {name: "blank", url: ""}
+        active_page.value = {name: "Google", url: "www.google.com"}
     }else{
         active_page.value = open_pages.value[0]
     }
@@ -61,11 +73,9 @@ function closeCurrent() {
     close(active_page.value.name)
 }
 
-open("Kanban")
-open("Google")
-
 import emitter from "@/components/misc/eventHandler"
 emitter.on("openPage", e => open(e))
+emitter.on("closePage", e => close(e))
 
 </script>
 

@@ -8,7 +8,7 @@
         @input="onInput"
         @keydown.down.prevent="highlightSuggestion(1)"
         @keydown.up.prevent="highlightSuggestion(-1)"
-        @keydown.enter="selectSuggestion"
+        @keydown.enter="search"
         placeholder="Search Google or type a URL"
         class="search-input"
       />
@@ -32,11 +32,14 @@
 </template>
 
 <script>
+import emitter from "@/components/misc/eventHandler"
+
 export default {
+
   data() {
     return {
       query: '',
-      validTerms: ['google', 'minecraft', 'free minecraft'],
+      validTerms: ['google', 'minecraft', 'free minecraft', 'minecraft download'],
       suggestions: [],
       highlightedIndex: -1,
       searchResult: ''
@@ -45,8 +48,8 @@ export default {
   methods: {
     onInput() {
       const input = this.query.toLowerCase();
-      this.suggestions = this.validTerms.filter(term =>
-        term.startsWith(input) && input !== ''
+      this.suggestions = this.validTerms.filter(term => 
+        term.match(".*" + input + ".*") != null && input != ""
       );
       this.highlightedIndex = -1;
     },
@@ -65,17 +68,18 @@ export default {
       }
     },
     search() {
-      if (this.validTerms.includes(this.query.toLowerCase())) {
-        this.searchResult = `You searched for "${this.query}"! Showing results...`;
-        if (this.query.toLowerCase() === "google") {
-          window.location.href = "/bluescreen";
-        } else if (this.query.toLowerCase() === "minecraft") {
-          window.location.href = "/minecraft_launcher_real";
-        } else if (this.query.toLowerCase() === "free minecraft") {
-          window.location.href = "/minecraft_launcher_fake";
-        }
-      } else {
-        this.searchResult = `Invalid search term. Try "google", "minecraft", or "free minecraft".`;
+      const input = this.query.toLowerCase()
+      
+      if(input.match(".*minecraft.*") != null && input != ""){
+        emitter.emit("openPage", "minecraft - Google search")
+        emitter.emit("closePage", "Google")
+      }else if(input.match(".*google.*") != null && input != ""){
+        console.log("add blue screen here");
+      }else if(input == ""){
+
+      }else{
+        emitter.emit("openPage", "Dino")
+        emitter.emit("closePage", "Google")
       }
     }
   }
