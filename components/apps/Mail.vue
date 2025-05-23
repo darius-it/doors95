@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="min-h-[75vh] flex">
+    <div class="min-h-[55vh] min-w-[60vw] flex">
       <!-- E-Mail-Liste -->
       <aside class="w-1/3 bg-[#b3b3b3] border-r border-gray-300 overflow-y-auto">
         <ul>
