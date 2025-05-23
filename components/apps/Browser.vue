@@ -61,10 +61,8 @@ function closeCurrent() {
     close(active_page.value.name)
 }
 
-open("Google")
 open("Kanban")
-
-
+open("Google")
 
 </script>
 

@@ -8,7 +8,7 @@
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
-      <AppsBrowser/>
+      <AppsBrowser />
     </DesktopWindow>
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
