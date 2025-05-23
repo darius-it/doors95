@@ -119,7 +119,6 @@ export default {
       `,
     link:`http://m1crosoft-security-check.insecure-domain.xyz`,
     body2: `
-
       Thank you,  
       Microsoft Security Team`,
     read: false,
@@ -156,7 +155,6 @@ To restore access, please verify your information using the following link:
 `,
     link: `http://paypa1.secure-checkup.io`,
     body2: `
-
 This is a security measure to protect your account. Please act promptly.
 
 Best regards,  
@@ -203,17 +201,16 @@ Kevin (IT Helpdesk)`,
   {
     id: 6,
     sender: 'winner@amzn-prizecenter.com',
-    subject: 'Congratulations! You’ve won a €100 Amazon voucher!',
+    subject: 'Congratulations! You’ve won a 100 Euro Amazon voucher!',
     date: '2025-05-18',
     body1: `Dear participant,
 
-You’ve been randomly selected as the winner of a €100 Amazon gift card!
+You’ve been randomly selected as the winner of a 100 Euro Amazon gift card!
 
 To claim your prize, simply click the link below and confirm your details:  
 `,
     link: `http://prize-center.amzn-de-gutschein.com`,
     body2: `
-
 Hurry! This offer expires in 48 hours.
 
 Good luck!  

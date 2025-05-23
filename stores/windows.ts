@@ -4,6 +4,9 @@ export const useOpenWindowsStore = defineStore("windows", {
   state: () => ({ 
     openWindows: [] as string[],
     lastClickedWindow: "",
+    installableSoftware: {
+      minecraft: false
+    }
   }),
   actions: {
     openWindow(windowName: string) {

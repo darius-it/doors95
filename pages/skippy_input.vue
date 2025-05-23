@@ -15,7 +15,14 @@
           @keyup.enter="submitName"
           autofocus
         />
-        <UiButton class="skippy-btn" :disabled="!nameInput.trim()" @click="submitName">Confirm</UiButton>
+        <UiButton
+          class="skippy-btn"
+          :disabled="!nameInput.trim()"
+          @click="submitName"
+          style="font-size: 1.35rem; padding: 1.1rem 2.9rem;"
+        >
+        Confirm
+        </UiButton>
       </div>
     </div>
   </div>
@@ -35,6 +42,13 @@ function submitName() {
   missionsStore.userName = nameInput.value.trim()
   missionsStore.triggerEvent('name_submitted')
   visible.value = false
+  clientNotification()
+}
+
+function clientNotification() {
+  setTimeout(() => {
+    missionsStore.triggerEvent("delay")
+  }, 3600)
 }
 </script>
 
@@ -140,7 +154,7 @@ function submitName() {
   border: 2px solid #000181;
   background: #fff;
 }
-.skippy-btn {
+/* .skippy-btn {
   background: #222;
   color: #fff;
   border: none;
@@ -152,5 +166,5 @@ function submitName() {
   transition: background 0.2s;
   margin: 0 auto;
   display: block;
-}
+} */
 </style>
