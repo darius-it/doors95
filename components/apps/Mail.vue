@@ -181,6 +181,7 @@ The Amazon Prize Team`,
 
 const selectedMail = ref(null);
 const missionsStore = useMissionsStore();
+const payloadStore = usePayloadsStore();
 let wrongLinkClicked = false;
 
 function selectMail(mail) {
@@ -210,9 +211,14 @@ function handleClick(id) {
   // Deine Funktion hier
   //if id 5 - fake launcher
   //otherwise 
+  if (id == 1) {
+    payloadStore.antRunner = true
+  }
+
   if (id == 5) {
     wrongLinkClicked = true
     //TODO: call fake mc launcher
+
   }
 }
 </script>
