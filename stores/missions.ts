@@ -2,7 +2,7 @@ import { defineStore } from "pinia"
 
 export const useMissionsStore = defineStore("missions", {
   state: () => ({
-    userName: "",
+    userName: "Little Billy",
     infectionLevel: 0,
     latest_trigger_triggered: "skippy_installed",
 
@@ -26,4 +26,29 @@ export const useMissionsStore = defineStore("missions", {
       "positive3": "{name}, you avoided those ads like a pro. Your caution really pays off!"
     }
   }),
+  actions: {
+    triggerEvent(event: string) {
+      let text = '';
+      const missionTriggers = this.mission_triggers as Record<string, string>;
+      const reactions = this.reactions as Record<string, string>;
+      if (Object.prototype.hasOwnProperty.call(missionTriggers, event)) {
+        text = missionTriggers[event];
+        this.latest_trigger_triggered = event;
+      } else if (Object.prototype.hasOwnProperty.call(reactions, event)) {
+        text = reactions[event];
+      } else {
+        return;
+      }
+      text = text.replace(/\{name\}/g, this.userName);
+      // @ts-ignore
+      window.setClippyText?.(text);
+    },
+    getStateString() {
+      return JSON.stringify({
+        userName: this.userName,
+        infectionLevel: this.infectionLevel,
+        latest_trigger_triggered: this.latest_trigger_triggered
+      }, null, 2);
+    }
+  }
 })

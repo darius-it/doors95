@@ -109,6 +109,16 @@
   window.setClippyText = setClippyText;
   // @ts-ignore
   window.animateClippy = animateClippy;
+  // @ts-ignore
+  import { useMissionsStore } from '~/stores/missions';
+  // @ts-ignore
+  const missionsStore = useMissionsStore();
+  // @ts-ignore
+  window.triggerMissionEvent = (event) => missionsStore.triggerEvent.call(missionsStore, event);
+  // @ts-ignore
+  window.getMissionState = () => missionsStore.getStateString.call(missionsStore);
+  // @ts-ignore
+  window.missionsStore = missionsStore;
 
   const openWindow = (windowName: string) => {
     console.log(`Opening window: ${windowName}`);
