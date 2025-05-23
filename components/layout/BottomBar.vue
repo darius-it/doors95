@@ -13,7 +13,7 @@
           v-for="window in currentlyOpenWindows.openWindows" :key="window"
           @click="currentlyOpenWindows.setLastClickedWindow(window)"
         >
-          <div class="text-left flex flex-row items-start justify-start w-16 -ml-2 pr-12 cursor-pointer">
+          <div class="text-left flex flex-row items-start justify-start w-16 -ml-2 pr-32 cursor-pointer">
             {{ window }}
           </div>
         </LayoutBottomBarButton>
