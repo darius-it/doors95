@@ -67,8 +67,9 @@
   import { ref } from 'vue'
   import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
 
-  const clippyBubble = ref();
+  const currentlyOpenWindows = useOpenWindowsStore();
 
+  const clippyBubble = ref();
   // Add scale ref for animation
   const clippyScale = ref(1);
 
@@ -107,8 +108,6 @@
   window.setClippyText = setClippyText;
   // @ts-ignore
   window.animateClippy = animateClippy;
-
-  const currentlyOpenWindows = useOpenWindowsStore();
 
   const openWindow = (windowName: string) => {
     console.log(`Opening window: ${windowName}`);
