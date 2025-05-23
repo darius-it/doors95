@@ -19,6 +19,9 @@
         </LayoutBottomBarButton>
       </div>
     </div>
+    <div id="bottom-bar-smiley" class="flex items-center">
+      <LayoutBottomBarSmiley/>
+    </div>
     <div id="bottom-bar-right" class="flex items-center">
       <LayoutBottomBarClock />
     </div>

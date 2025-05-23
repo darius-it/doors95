@@ -7,7 +7,9 @@
     </DesktopWindow>
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
-      @close="closeWindow" />
+      @close="closeWindow">
+      <AppsBrowser/>
+    </DesktopWindow>
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
@@ -18,6 +20,7 @@
       @close="closeWindow">
       <AppsAntivirus />
     </DesktopWindow>
+    <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" @close="closeWindow"><AppsMinecraftGame/></DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -36,6 +39,12 @@
         <DesktopIcon windowName="Dino Game" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
           <IconDino />
+        </DesktopIcon>
+      </div>
+      <div class="flex flex-row gap-4 items-center">
+        <DesktopIcon windowName="Minecraft" @openWindow="(windowName) => openWindow(windowName)"
+          class="flex flex-col items-center min-w-[16px]">
+          <IconMinecraft />
         </DesktopIcon>
       </div>
     </div>
