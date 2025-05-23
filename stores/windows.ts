@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia'
 
 export const useOpenWindowsStore = defineStore("windows", {
-  state: () => ({ }),
+  state: () => ({ 
+    openWindows: [] as string[],
+    lastClickedWindow: "",
+  }),
   actions: {}
 })

@@ -1,17 +1,23 @@
 <template>
-  <div class="absolute top-0 left-0 w-full h-full bg-transparent flex flex-col items-center justify-center pointer-events-none">
+  <div 
+    class="absolute top-0 left-0 w-full h-full bg-transparent flex flex-col items-center justify-center pointer-events-none"
+    :style="{ zIndex: windowZIndex }"
+    v-show="isOpen"
+  >
     <div
       ref="el"
-      class="window95 pointer-events-auto"
+      class="window95 pointer-events-auto resize overflow-auto"
       :style="style"
+      :class="windowDimensionsStyle"
+      @click="$emit('clickInsideWindow', name)"
     >
       <div
         class="window95-titlebar flex items-center justify-between"
         ref="dragHandle"
         style="cursor: move"
       >
-        <span class="window95-title">Window Title</span>
-        <button class="window95-close" @click="emit('close')" aria-label="Close">
+        <span class="window95-title">{{ name }}</span>
+        <button class="window95-close" @click="emit('close', name)" aria-label="Close">
           ✕
         </button>
       </div>
@@ -23,23 +29,66 @@
 </template>
 
 <script lang="ts" setup>
-import { useDraggable } from '@vueuse/core'
-import { ref, onMounted, nextTick, defineEmits } from 'vue'
+import { useDraggable, useResizeObserver } from '@vueuse/core'
 
-const emit = defineEmits(['close'])
+const props = defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  lastClickedWindow: {
+    type: String,
+    default: '',
+  },
+  currentlyOpenWindows: {
+    type: Array
+  },
+})
+
+const emit = defineEmits(['close', 'clickInsideWindow'])
 const el = ref<HTMLElement | null>(null)
 const dragHandle = ref<HTMLElement | null>(null)
+
+const windowHeight = ref(0)
+const windowWidth = ref(0)
+
+const windowDimensionsStyle = computed(() => {
+  return "w-[" + windowWidth.value + "px] h-[" + windowHeight.value + "px]"
+})
+
+const windowZIndex = computed(() => {
+  return props.lastClickedWindow === props.name ? 1000 : 0
+})
+
+const isOpen = computed(() => {
+  if (!props.currentlyOpenWindows) return false
+  return props.currentlyOpenWindows.includes(props.name)
+})
 
 const { x, y, style } = useDraggable(el, {
   handle: dragHandle,
   initialValue: { x: 0, y: 0 },
+  onStart: () => {
+    emit('clickInsideWindow', props.name)
+  },
 })
+
+useResizeObserver(el, (entries) => {
+  const entry = entries[0]
+  if (entry) {
+    windowWidth.value = entry.contentRect.width
+    windowHeight.value = entry.contentRect.height
+  }
+})
+
+let initialized = false
 
 onMounted(async () => {
   await nextTick()
-  if (el.value) {
+  if (el.value && !initialized) {
     x.value = (window.innerWidth - el.value.offsetWidth) / 2
     y.value = (window.innerHeight - el.value.offsetHeight) / 2
+    initialized = true
   }
 })
 </script>
@@ -48,8 +97,8 @@ onMounted(async () => {
 /* ...styles unchanged... */
 .window95 {
   position: absolute;
-  min-width: 320px;
-  min-height: 200px;
+  min-width: 800px;
+  min-height: 560px;
   background: #c0c0c0;
   border: 2px solid #fff;
   border-bottom-color: #808080;
