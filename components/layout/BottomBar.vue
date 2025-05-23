@@ -21,7 +21,7 @@
     </div>
     <div id="bottom-bar-right" class="flex flex-row gap-2 items-center border-t border-l border-r border-b border-[#08080E] border-r-[#FCFCFC] border-b-[#FCFCFC] pr-4 pl-2 py-0.5">
       <div class="flex flex-row items-center mr-2 gap-2">
-        <LayoutBottomBarSmiley/>
+        <LayoutBottomBarSmiley />
         <IconWireless class="w-4 h-4 text-black" />
       </div>
       <LayoutBottomBarClock />
