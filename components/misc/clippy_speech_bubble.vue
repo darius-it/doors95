@@ -25,7 +25,7 @@ export default {
     },
     setText(text) {
       this.clippyText = text;
-    },
+    }
   },
 };
 </script>
