@@ -28,20 +28,29 @@ export const useMissionsStore = defineStore("missions", {
   }),
   actions: {
     triggerEvent(event: string) {
+      console.log("Test", event)
       let text = '';
       const missionTriggers = this.mission_triggers as Record<string, string>;
       const reactions = this.reactions as Record<string, string>;
       if (Object.prototype.hasOwnProperty.call(missionTriggers, event)) {
         text = missionTriggers[event];
         this.latest_trigger_triggered = event;
+        console.log("story_event_triggered")
       } else if (Object.prototype.hasOwnProperty.call(reactions, event)) {
         text = reactions[event];
+        console.log("reaction_event_triggered")
       } else {
-        return;
+        console.log("no_such_event", event)
       }
+      console.log(text)
       text = text.replace(/\{name\}/g, this.userName);
       // @ts-ignore
-      window.setClippyText?.(text);
+      setTimeout(() => {
+      console.log("Setting text")
+      window.setClippyText(text);
+      }, 200)
+
+
     },
     getStateString() {
       return JSON.stringify({

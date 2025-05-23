@@ -129,12 +129,15 @@ function animateClippy() {
   }, 180);
 }
 
-function showClippy() {
+function showClippyOnInstall() {
   clippyVisible.value = true;
   clippyScale.value = 0;
   setTimeout(() => {
     clippyScale.value = 1;
-  }, 10); 
+  }, 10);
+  // @ts-ignore
+  missionsStore.triggerEvent("clippy_installed")
+
 }
 function hideClippy() {
   clippyVisible.value = false;
@@ -143,7 +146,8 @@ function hideClippy() {
 
 function onSkippyInstalled() {
   skippyInstalled.value = true;
-  showClippy();
+  showClippyOnInstall();
+
 }
 
 // Expose to console for debugging
@@ -152,7 +156,7 @@ window.setClippyText = setClippyText;
 // @ts-ignore
 window.animateClippy = animateClippy;
 // @ts-ignore
-window.showClippy = showClippy;
+window.showClippy = showClippyOnInstall;
 // @ts-ignore
 window.hideClippy = hideClippy;
 
@@ -162,11 +166,11 @@ import { useMissionsStore } from '~/stores/missions';
 // @ts-ignore
 const missionsStore = useMissionsStore();
 // @ts-ignore
-window.triggerMissionEvent = (event) => missionsStore.triggerEvent.call(missionsStore, event);
+window.triggerEvent = (event) => missionsStore.triggerEvent.call(missionsStore, event);
 // @ts-ignore
-window.getMissionState = () => missionsStore.getStateString.call(missionsStore);
-  // @ts-ignore
-  window.getLatestStateTriggered = () => missionsStore.getLatestStateTriggered.call(missionsStore);
+window.getStateString = () => missionsStore.getStateString.call(missionsStore);
+// @ts-ignore
+window.getLatestStateTriggered = () => missionsStore.getLatestStateTriggered.call(missionsStore);
 // @ts-ignore
 window.missionsStore = missionsStore;
 
