@@ -35,7 +35,7 @@
       <div class="flex flex-row gap-15 items-center ml-5">
         <DesktopIcon windowName="Mail" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
-          <IconMail />
+          <img src="/icons/email.png" alt="Mail Icon" class="w-14 h-14 mb-1" />
         </DesktopIcon>
         <DesktopIcon windowName="Browser" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
