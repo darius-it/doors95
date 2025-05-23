@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="pointer-events-none">
     <audio ref="vineBoom" loop>
       <source src="/audio/vine-boom.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.

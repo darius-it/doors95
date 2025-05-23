@@ -220,8 +220,8 @@ function handleClick(id) {
     missionsStore.triggerEvent("phishing2")
   }
   else if (id == 3) {
-    payloadStore.bluescreen = true
     missionsStore.triggerEvent("phishing2")
+    payloadStore.cube = true
   }
   else if (id == 5) {
     wrongLinkClicked = true
@@ -236,8 +236,8 @@ function handleClick(id) {
 
   }
   else if (id == 6) {
-    payloadStore.ransomware = true
     missionsStore.triggerEvent("phishing2")
+    payloadStore.bobr_kurwa = true
   }
 }
 </script>

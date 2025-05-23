@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pointer-events-none">
     <img src="/images/bobr_kurwa.avif" class="rotating-image" alt="Rotating" />
     <audio ref="audio" src="/audio/bober.mp3" autoplay loop></audio>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ant-container w-full h-screen absolute top-0 left-0 z-[100000] bg-transparent">
+  <div class="ant-container w-full h-screen absolute top-0 left-0 z-[100000] bg-transparent pointer-events-none">
     <div
       v-for="ant in ants"
       :key="ant.id"
