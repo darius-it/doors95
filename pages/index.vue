@@ -70,6 +70,8 @@
 
     <!-- Skippy Start Overlay (z-[9500]) -->
     <SkippyStart v-if="!skippyInstalled" @skippy-installed="onSkippyInstalled" style="z-index:9500; position:fixed; inset:0;" />
+    <!-- Skippy Input Overlay (z-[9600]) -->
+    <SkippyInput v-if="skippyInputVisible" style="z-index:9600; position:fixed; inset:0;" />
     <!-- Underlay Window in lower right -->
     <div v-if="clippyVisible" class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
@@ -89,6 +91,7 @@
 import { ref } from 'vue'
 import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
 import SkippyStart from '~/pages/skippy_start.vue';
+import SkippyInput from '~/pages/skippy_input.vue';
 
 const currentlyOpenWindows = useOpenWindowsStore();
 
@@ -98,6 +101,7 @@ const colorShiftEnabled = ref(false);
 const clippyScale = ref(0); // Start hidden
 const clippyVisible = ref(false);
 const skippyInstalled = ref(false);
+const skippyInputVisible = ref(false);
 
 function showClippyBubble() {
   if (
@@ -147,6 +151,9 @@ function hideClippy() {
 function onSkippyInstalled() {
   skippyInstalled.value = true;
   showClippyOnInstall();
+  setTimeout(() => {
+    skippyInputVisible.value = true;
+  }, 4000);
 
 }
 
