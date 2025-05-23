@@ -19,11 +19,11 @@
                 v-if="!mail.read"
                 class="w-1.5 h-1.5 bg-gray-900 rounded-full mr-2 mt-1"
               ></span>
-              <span :class="mail.read ? 'font-normal text-gray-800' : 'font-semibold text-gray-900'">
+              <span :class="mail.read ? 'text-xs truncate p-1 font-normal text-gray-800' : ' text-xs  p-1 font-semibold text-gray-900'">
                 {{ mail.sender }}
               </span>
             </div>
-            <div :class="['text-sm truncate p-1', mail.read ? 'text-gray-600' : 'text-gray-800']">
+            <div :class="['text-sm truncate p-2', mail.read ? 'text-xs text-gray-600' : 'text-xs text-gray-800']">
               {{ mail.subject }}
             </div>
           </li>
@@ -35,23 +35,24 @@
         <div v-if="selectedMail" class="space-y-4">
           <!-- Betreff und Datum oberhalb des Inhalts -->
           <div>
-            <h2 class="text-2xl font-bold text-gray-900">From: {{ selectedMail.sender }}</h2>
-            <p class="text-sm text-gray-500">{{ selectedMail.subject }}</p>
-            <p class="text-sm text-gray-500">{{ selectedMail.date }}</p>
+            <h2 class="text-l font-bold text-gray-900">From: {{ selectedMail.sender }}</h2>
+            <p class="text-xs text-gray-500">{{ selectedMail.subject }}</p>
+            <p class="text-xs text-gray-500">{{ selectedMail.date }}</p>
           </div>
-          <hr class="my-2 border-gray-300 mb-2 pb-2" />
-              <!-- <VueTypewriterEffect
-                :strings="[selectedMail.body]"
-                :autoStart="true"
-                :loop="false"
-                :delay="0.1"
-                :deleteSpeed="0"
-                :pauseFor="999999"
-                :key="selectedMail.id"
-                cursor=" "
-                class="text-gray-800 whitespace-pre-line"
-              /> -->
-          <p class="text-gray-800 whitespace-pre-line">{{ selectedMail.body }}</p>
+          <hr class=" my-2 border-gray-300 mb-2 pb-2" />
+              <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body1 }}</p>
+              <div v-if="selectedMail.link">
+                <button class="text-xs link-button" @click="handleClick(selectedMail.id)">
+                  {{ selectedMail.link }}
+                </button>
+              </div>
+              <div v-if="selectedMail.body2">
+                <p class="text-xs text-gray-800 whitespace-pre-line">{{ selectedMail.body2 }}</p>
+              </div>
+              
+            
+
+          
         </div>
         <div v-else class="text-gray-500 text-center mt-20">
           Select a Mail.
@@ -63,10 +64,41 @@
 
 <script setup>
 import VueTypewriterEffect from 'vue-typewriter-effect'
+import LinkString from '~/components/misc/LinkString.vue';
+
+
+/*
+import { ref, computed } from 'vue';
+
+const emailBody = 'Bitte klicke hier: {{http://m1crosoft-security-check.insecure-domain.xyz}}.';
+
+const parsedBody = computed(() => parseEmailBody(emailBody));
+
+function handleButtonClick(buttonName) {
+  console.log(`${buttonName} wurde geklickt`);
+  //location.reload()
+}
+
+function parseEmailBody(body) {
+  console.log(`${body.replace(/{{(.*?)}}/g, (match, buttonName) => {
+    return `<button class="mail-button" onclick="handleButtonClick('${buttonName}')">${buttonName}</button>`;
+  })}`)
+  
+  return body.replace(/{{(.*?)}}/g, (match, buttonName) => {
+    return `<button class="mail-button" onclick="handleButtonClick('${buttonName}')">${buttonName}</button>`;
+  });
+}*/
 </script>
 
+
+
+
 <script>
+
+
 export default {
+  
+
   name: 'MailClient',
   data() {
     return {
@@ -76,19 +108,21 @@ export default {
     sender: 'security-alert@m1crosoft-support.com',
     subject: 'Urgent: Unusual sign-in attempt detected on your Microsoft account',
     date: '2025-05-22',
-    body: `Hello,
+    body1: `Hello,
 
-We've detected an unusual sign-in attempt on your Microsoft account.
+      We've detected an unusual sign-in attempt on your Microsoft account.
 
-Device: Doors 95  
-Location: Bucharest, Romania  
-Time: May 22, 2025, 3:43 AM
+      Device: Doors 95  
+      Location: Bucharest, Romania  
+      Time: May 22, 2025, 3:43 AM
 
-If this wasn't you, please click the link below immediately to secure your account:  
-http://m1crosoft-security-check.insecure-domain.xyz
+      If this wasn't you, please click the link below immediately to secure your account:  
+      `,
+    link:`http://m1crosoft-security-check.insecure-domain.xyz`,
+    body2: `
 
-Thank you,  
-Microsoft Security Team`,
+      Thank you,  
+      Microsoft Security Team`,
     read: false,
   },
   {
@@ -96,17 +130,18 @@ Microsoft Security Team`,
     sender: 'noreply@dhl-parcelservice.net',
     subject: 'Package delivery failed – action required!',
     date: '2025-05-21',
-    body: `Dear customer,
+    body1: `Dear customer,
 
-Your shipment with tracking number DHL-593823234 could not be delivered.
+      Your shipment with tracking number DHL-593823234 could not be delivered.
 
-To schedule a redelivery, please confirm your address here:  
-http://dhl.redelivery-check.co.uk.unsecure.site
+      To schedule a redelivery, please confirm your address here:  
+      `,
+    link: `http://dhl.redelivery-check.co.uk.unsecure.site`,
+    body2: `
+      If we don't receive a response within 24 hours, the package will be returned.
 
-If we don't receive a response within 24 hours, the package will be returned.
-
-Sincerely,  
-DHL Customer Service`,
+      Sincerely,  
+      DHL Customer Service`,
     read: false,
   },
   {
@@ -114,12 +149,14 @@ DHL Customer Service`,
     sender: 'service@paypa1.com',
     subject: 'Your account has been temporarily limited',
     date: '2025-05-20',
-    body: `Dear customer,
+    body1: `Dear customer,
 
 We've detected suspicious activity on your PayPal account and have temporarily limited it.
 
 To restore access, please verify your information using the following link:  
-http://paypa1.secure-checkup.io
+`,
+    link: `http://paypa1.secure-checkup.io`,
+    body2: `
 
 This is a security measure to protect your account. Please act promptly.
 
@@ -132,7 +169,7 @@ PayPal Security Team`,
     sender: 'kevin.it@internal-support.org',
     subject: 'URGENT: Security update requires your assistance',
     date: '2025-05-19',
-    body: `Hi,
+    body1: `Hi,
 
 We're rolling out a critical security patch across all workstations.
 
@@ -146,32 +183,37 @@ Kevin (IT Helpdesk)`,
   },
   {
     id: 5,
-    sender: 'application@outlook.com',
-    subject: 'Application for your job posting – 21 May 2025',
+    sender: 'jonny8734@gmail.com',
+    subject: 'Wanna play Minecraft later?',
     date: '2025-05-19',
-    body: `Dear Sir or Madam,
+    body1: `Hey!
 
-Attached you will find my full application documents in PDF format.
+  I'm setting up a Minecraft server for tonight. Thought it’d be fun to finally play together like we talked about!
 
-I look forward to the opportunity to contribute to your company.
+  If you don’t have it installed yet, you can grab the installer here:  
+  `,
+    link: `https://launcher.minecraft.net/download/MinecraftInstaller.exe`,
+    body2: `
+  Let me know once you’re set up. Server should be live by 8 PM. I’ll send the IP then!
 
-Best regards,  
-Anna Lehmann
-
-Attachment: Application_AnnaLehmann.pdf.exe`,
+  See ya :)  
+  – Jonny`,
     read: false,
-  },
+  }
+  ,
   {
     id: 6,
     sender: 'winner@amzn-prizecenter.com',
     subject: 'Congratulations! You’ve won a €100 Amazon voucher!',
     date: '2025-05-18',
-    body: `Dear participant,
+    body1: `Dear participant,
 
 You’ve been randomly selected as the winner of a €100 Amazon gift card!
 
 To claim your prize, simply click the link below and confirm your details:  
-http://prize-center.amzn-de-gutschein.com
+`,
+    link: `http://prize-center.amzn-de-gutschein.com`,
+    body2: `
 
 Hurry! This offer expires in 48 hours.
 
@@ -190,6 +232,33 @@ The Amazon Prize Team`,
         mail.read = true;
       }
     },
+    handleClick(id) {
+      console.log(id);
+      // Deine Funktion hier
+    },
   },
 };
 </script>
+
+
+<style scoped>
+
+/*
+.mail-content {
+  font-size: 0.85rem; 
+}
+
+.mail-body {
+  font-size: 0.9rem;
+}
+*/
+.link-button {
+  /*background-color: #1d4ed8;*/
+  color: blue;
+  border: none;
+  padding: 0.5rem 0rem;
+  cursor: pointer;
+  text-decoration: underline;
+  
+}
+</style>
