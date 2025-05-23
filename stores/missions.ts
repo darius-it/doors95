@@ -24,7 +24,9 @@ export const useMissionsStore = defineStore("missions", {
       "negative4": "{name}, opening that app or popup could be dangerous. Staying alert protects your computer—well done!",
       "positive1": "{name}, you found the official installer site—excellent job!",
       "positive2": "{name}, you grabbed the right installer—smart and safe choice!",
-      "positive3": "{name}, you avoided those ads like a pro. Your caution really pays off!"
+      "positive3": "{name}, you avoided those ads like a pro. Your caution really pays off!",
+      "phishing1": "Well done, {name}, you avoided malicious links.",
+      "phishing2": "Phishing emails try to steal info or infect your pc by looking like trusted messages. Stay sharp!"
     }
   }),
   actions: {
