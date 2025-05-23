@@ -52,7 +52,7 @@ const fadeOut = ref(false)
 
 // BIOS lines and staggered reveal
 const biosLines = [
-  'AMI BIOS (C)1995 American Megatrends Inc.',
+  'AMI BIOS (C)1995 Bavarian Megatrends Inc.',
   '640K System RAM Passed',
   '384K Cache SRAM Passed',
   'Detecting IDE Drives ...',
