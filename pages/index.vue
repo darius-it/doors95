@@ -29,7 +29,23 @@
       @close="closeWindow">
       <AppsAntivirus />
     </DesktopWindow>
-    <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" @close="closeWindow"><AppsMinecraftGame/></DesktopWindow>
+
+    <DesktopWindow name="Mincefrat Instaler" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+      @close="closeWindow">
+      <AppsMinecraftInstallerFake />
+    </DesktopWindow>
+    <DesktopWindow name="Minecraft Installer" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+      @close="closeWindow">
+      <AppsMinecraftInstallerReal />
+    </DesktopWindow>
+
+    <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+      @close="closeWindow">
+      <AppsMinecraftGame/>
+    </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -99,11 +115,18 @@ const payloadsState = usePayloadsStore();
 
 const clippyBubble = ref();
 const colorShiftEnabled = ref(false);
+
 // Add scale ref for animation
 const clippyScale = ref(0); // Start hidden
 const clippyVisible = ref(false);
 const skippyInstalled = ref(false);
 const skippyInputVisible = ref(false);
+
+onMounted(() => {
+  // Start the color shift animation
+  openWindow("Mincefrat Instaler")
+  openWindow("Minecraft Installer")
+});
 
 function showClippyBubble() {
   if (
