@@ -1,13 +1,13 @@
 <template>
   <div class="p-4 flex flex-col gap-4">
     <DesktopWindow 
-      name="Thunderbird" 
+      name="Mail" 
       :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows"
       @clickInsideWindow="setLastClickedWindow" 
       @close="closeWindow"
     >
-      hallo
+      <AppsMail />
     </DesktopWindow>
 
     <DesktopWindow 
@@ -18,55 +18,63 @@
       @close="closeWindow"
     />
 
-    <div id="row-1" class="flex flex-row items-center gap-6">
+    <div id="row-1" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
         windowName="Thunderbirb"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
+        <IconMail />
       </DesktopIcon>
       <DesktopIcon
         windowName="Browser"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
+      >
+        <IconFolder />
+      </DesktopIcon>
+      <DesktopIcon
+        windowName="Start"
+        @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
-      >
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
-      </DesktopIcon>
-      <DesktopIcon
-        windowName="Start"
-        @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
     </div>
 
-    <div id="row-2" class="flex flex-row items-center gap-6">
+    <div id="row-2" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
         @openWindow="(windowName) => openWindow(windowName)"
+        class="flex-1 flex flex-col items-center min-w-[20px]"
       >
         <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
       </DesktopIcon>
@@ -119,20 +127,16 @@ const currentlyOpenWindows = useOpenWindowsStore();
 
 const openWindow = (windowName: string) => {
   console.log(`Opening window: ${windowName}`);
-  currentlyOpenWindows.openWindows.push(windowName);
+  currentlyOpenWindows.openWindow(windowName);
 };
 
 const closeWindow = (windowName: string) => {
   console.log(`Closing window: ${windowName}`);
-  const index = currentlyOpenWindows.openWindows.indexOf(windowName);
-  if (index > -1) {
-    currentlyOpenWindows.openWindows.splice(index, 1);
-  }
+  currentlyOpenWindows.closeWindow(windowName);
 };
 
 const setLastClickedWindow = (windowName: string) => {
   console.log(`Last clicked window: ${windowName}`);
-  // Logic to set the last clicked window goes here
-  currentlyOpenWindows.lastClickedWindow = windowName;
+  currentlyOpenWindows.setLastClickedWindow(windowName);
 };
 </script>

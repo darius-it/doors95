@@ -1,0 +1,111 @@
+<template>
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_6_325)">
+        <path d="M28 0H24V4H28V0Z" fill="#FFE600"/>
+        <path d="M32 0H28V4H32V0Z" fill="#FFE600"/>
+        <path d="M28 4H24V8H28V4Z" fill="#FFE600"/>
+        <path d="M32 4H28V8H32V4Z" fill="#FFE600"/>
+        <path d="M24 8H20V12H24V8Z" fill="#FFE600"/>
+        <path d="M28 8H24V12H28V8Z" fill="#FFE600"/>
+        <path d="M32 8H28V12H32V8Z" fill="#FFE600"/>
+        <path d="M36 8H32V12H36V8Z" fill="#FFE600"/>
+        <path d="M24 12H20V16H24V12Z" fill="#FFE600"/>
+        <path d="M28 12H24V16H28V12Z" fill="#FFE600"/>
+        <path d="M32 12H28V16H32V12Z" fill="#FFE600"/>
+        <path d="M36 12H32V16H36V12Z" fill="#FFE600"/>
+        <path d="M20 16H16V20H20V16Z" fill="#FFE600"/>
+        <path d="M24 16H20V20H24V16Z" fill="#FFE600"/>
+        <path d="M28 16H24V20H28V16Z" fill="#FFE600"/>
+        <path d="M32 16H28V20H32V16Z" fill="#FFE600"/>
+        <path d="M36 16H32V20H36V16Z" fill="#FFE600"/>
+        <path d="M40 16H36V20H40V16Z" fill="#FFE600"/>
+        <path d="M4 20H0V24H4V20Z" fill="#FFE600"/>
+        <path d="M8 20H4V24H8V20Z" fill="#FFE600"/>
+        <path d="M12 20H8V24H12V20Z" fill="#FFE600"/>
+        <path d="M16 20H12V24H16V20Z" fill="#FFE600"/>
+        <path d="M20 20H16V24H20V20Z" fill="#FFE600"/>
+        <path d="M24 20H20V24H24V20Z" fill="#FFE600"/>
+        <path d="M28 20H24V24H28V20Z" fill="#FFE600"/>
+        <path d="M32 20H28V24H32V20Z" fill="#FFE600"/>
+        <path d="M36 20H32V24H36V20Z" fill="#FFE600"/>
+        <path d="M40 20H36V24H40V20Z" fill="#FFE600"/>
+        <path d="M44 20H40V24H44V20Z" fill="#FFE600"/>
+        <path d="M48 20H44V24H48V20Z" fill="#FFE600"/>
+        <path d="M52 20H48V24H52V20Z" fill="#FFE600"/>
+        <path d="M56 20H52V24H56V20Z" fill="#FFE600"/>
+        <path d="M8 24H4V28H8V24Z" fill="#FFE600"/>
+        <path d="M12 24H8V28H12V24Z" fill="#FFE600"/>
+        <path d="M16 24H12V28H16V24Z" fill="#FFE600"/>
+        <path d="M20 24H16V28H20V24Z" fill="#FFE600"/>
+        <path d="M24 24H20V28H24V24Z" fill="#FFE600"/>
+        <path d="M28 24H24V28H28V24Z" fill="#FFE600"/>
+        <path d="M32 24H28V28H32V24Z" fill="#FFE600"/>
+        <path d="M36 24H32V28H36V24Z" fill="#FFE600"/>
+        <path d="M40 24H36V28H40V24Z" fill="#FFE600"/>
+        <path d="M44 24H40V28H44V24Z" fill="#FFE600"/>
+        <path d="M48 24H44V28H48V24Z" fill="#FFE600"/>
+        <path d="M52 24H48V28H52V24Z" fill="#FFE600"/>
+        <path d="M12 28H8V32H12V28Z" fill="#FFE600"/>
+        <path d="M16 28H12V32H16V28Z" fill="#FFE600"/>
+        <path d="M20 28H16V32H20V28Z" fill="#FFE600"/>
+        <path d="M24 28H20V32H24V28Z" fill="#FFE600"/>
+        <path d="M28 28H24V32H28V28Z" fill="#FFE600"/>
+        <path d="M32 28H28V32H32V28Z" fill="#FFE600"/>
+        <path d="M36 28H32V32H36V28Z" fill="#FFE600"/>
+        <path d="M40 28H36V32H40V28Z" fill="#FFE600"/>
+        <path d="M44 28H40V32H44V28Z" fill="#FFE600"/>
+        <path d="M48 28H44V32H48V28Z" fill="#FFE600"/>
+        <path d="M16 32H12V36H16V32Z" fill="#FFE600"/>
+        <path d="M20 32H16V36H20V32Z" fill="#FFE600"/>
+        <path d="M24 32H20V36H24V32Z" fill="#FFE600"/>
+        <path d="M28 32H24V36H28V32Z" fill="#FFE600"/>
+        <path d="M32 32H28V36H32V32Z" fill="#FFE600"/>
+        <path d="M36 32H32V36H36V32Z" fill="#FFE600"/>
+        <path d="M40 32H36V36H40V32Z" fill="#FFE600"/>
+        <path d="M44 32H40V36H44V32Z" fill="#FFE600"/>
+        <path d="M16 36H12V40H16V36Z" fill="#FFE600"/>
+        <path d="M20 36H16V40H20V36Z" fill="#FFE600"/>
+        <path d="M24 36H20V40H24V36Z" fill="#FFE600"/>
+        <path d="M28 36H24V40H28V36Z" fill="#FFE600"/>
+        <path d="M32 36H28V40H32V36Z" fill="#FFE600"/>
+        <path d="M36 36H32V40H36V36Z" fill="#FFE600"/>
+        <path d="M40 36H36V40H40V36Z" fill="#FFE600"/>
+        <path d="M44 36H40V40H44V36Z" fill="#FFE600"/>
+        <path d="M12 40H8V44H12V40Z" fill="#FFE600"/>
+        <path d="M16 40H12V44H16V40Z" fill="#FFE600"/>
+        <path d="M20 40H16V44H20V40Z" fill="#FFE600"/>
+        <path d="M24 40H20V44H24V40Z" fill="#FFE600"/>
+        <path d="M28 40H24V44H28V40Z" fill="#FFE600"/>
+        <path d="M32 40H28V44H32V40Z" fill="#FFE600"/>
+        <path d="M36 40H32V44H36V40Z" fill="#FFE600"/>
+        <path d="M40 40H36V44H40V40Z" fill="#FFE600"/>
+        <path d="M44 40H40V44H44V40Z" fill="#FFE600"/>
+        <path d="M48 40H44V44H48V40Z" fill="#FFE600"/>
+        <path d="M12 44H8V48H12V44Z" fill="#FFE600"/>
+        <path d="M16 44H12V48H16V44Z" fill="#FFE600"/>
+        <path d="M20 44H16V48H20V44Z" fill="#FFE600"/>
+        <path d="M24 44H20V48H24V44Z" fill="#FFE600"/>
+        <path d="M36 44H32V48H36V44Z" fill="#FFE600"/>
+        <path d="M40 44H36V48H40V44Z" fill="#FFE600"/>
+        <path d="M44 44H40V48H44V44Z" fill="#FFE600"/>
+        <path d="M48 44H44V48H48V44Z" fill="#FFE600"/>
+        <path d="M8 48H4V52H8V48Z" fill="#FFE600"/>
+        <path d="M12 48H8V52H12V48Z" fill="#FFE600"/>
+        <path d="M16 48H12V52H16V48Z" fill="#FFE600"/>
+        <path d="M20 48H16V52H20V48Z" fill="#FFE600"/>
+        <path d="M40 48H36V52H40V48Z" fill="#FFE600"/>
+        <path d="M44 48H40V52H44V48Z" fill="#FFE600"/>
+        <path d="M48 48H44V52H48V48Z" fill="#FFE600"/>
+        <path d="M52 48H48V52H52V48Z" fill="#FFE600"/>
+        <path d="M8 52H4V56H8V52Z" fill="#FFE600"/>
+        <path d="M12 52H8V56H12V52Z" fill="#FFE600"/>
+        <path d="M48 52H44V56H48V52Z" fill="#FFE600"/>
+        <path d="M52 52H48V56H52V52Z" fill="#FFE600"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_6_325">
+        <rect width="56" height="56" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+</template>

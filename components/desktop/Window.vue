@@ -6,9 +6,8 @@
   >
     <div
       ref="el"
-      class="window95 pointer-events-auto resize overflow-auto"
+      class="window95 pointer-events-auto"
       :style="style"
-      :class="windowDimensionsStyle"
       @click="$emit('clickInsideWindow', name)"
     >
       <div
@@ -29,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useDraggable, useResizeObserver } from '@vueuse/core'
+import { useDraggable } from '@vueuse/core'
 
 const props = defineProps({
   name: {
@@ -49,36 +48,26 @@ const emit = defineEmits(['close', 'clickInsideWindow'])
 const el = ref<HTMLElement | null>(null)
 const dragHandle = ref<HTMLElement | null>(null)
 
-const windowHeight = ref(0)
-const windowWidth = ref(0)
-
-const windowDimensionsStyle = computed(() => {
-  return "w-[" + windowWidth.value + "px] h-[" + windowHeight.value + "px]"
-})
-
 const windowZIndex = computed(() => {
   return props.lastClickedWindow === props.name ? 1000 : 0
 })
 
 const isOpen = computed(() => {
-  if (!props.currentlyOpenWindows) return false
+  if (!props.currentlyOpenWindows) {
+    return false
+  }
   return props.currentlyOpenWindows.includes(props.name)
 })
 
 const { x, y, style } = useDraggable(el, {
   handle: dragHandle,
-  initialValue: { x: 0, y: 0 },
+  initialValue: { 
+    x: 1000, 
+    y: 450
+  },
   onStart: () => {
     emit('clickInsideWindow', props.name)
   },
-})
-
-useResizeObserver(el, (entries) => {
-  const entry = entries[0]
-  if (entry) {
-    windowWidth.value = entry.contentRect.width
-    windowHeight.value = entry.contentRect.height
-  }
 })
 
 let initialized = false
@@ -86,19 +75,19 @@ let initialized = false
 onMounted(async () => {
   await nextTick()
   if (el.value && !initialized) {
-    x.value = (window.innerWidth - el.value.offsetWidth) / 2
-    y.value = (window.innerHeight - el.value.offsetHeight) / 2
+    // Center the window
+    x.value = 370
+    y.value = 75
     initialized = true
   }
 })
 </script>
 
 <style scoped>
-/* ...styles unchanged... */
 .window95 {
   position: absolute;
-  min-width: 800px;
-  min-height: 560px;
+  min-width: 200px;
+  min-height: 100px;
   background: #c0c0c0;
   border: 2px solid #fff;
   border-bottom-color: #808080;
@@ -147,7 +136,6 @@ onMounted(async () => {
 
 .window95-content {
   padding: 4px;
-  font-family: 'MS Sans Serif', Arial, sans-serif;
   height: calc(100% - 36px);
   overflow: auto;
 }
