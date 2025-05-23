@@ -182,6 +182,7 @@ The Amazon Prize Team`,
 const selectedMail = ref(null);
 const missionsStore = useMissionsStore();
 const payloadStore = usePayloadsStore();
+const openWindowsStore = useOpenWindowsStore();
 let wrongLinkClicked = false;
 
 function selectMail(mail) {
@@ -226,12 +227,14 @@ function handleClick(id) {
   else if (id == 5) {
     wrongLinkClicked = true
 
-    //TODO: call fake mc launcher
+    openWindowsStore.openWindow("Mincefrat Instaler")
 
-    missionsStore.triggerEvent("phishing1")
     setTimeout(() => {
-      missionsStore.triggerEvent("phishing1_delay")
-    }, 4000)
+      missionsStore.triggerEvent("phishing1")
+      setTimeout(() => {
+        missionsStore.triggerEvent("phishing1_delay")
+      }, 4000)
+    }, 5000)
 
 
   }

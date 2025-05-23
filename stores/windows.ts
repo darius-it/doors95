@@ -12,7 +12,9 @@ export const useOpenWindowsStore = defineStore("windows", {
     openWindow(windowName: string) {
       if (!this.openWindows.includes(windowName)) {
         this.openWindows.push(windowName)
-        this.lastClickedWindow = windowName
+        setTimeout(() => {
+          this.lastClickedWindow = windowName
+        }, 1)
       }
     },
     closeWindow(windowName: string) {
