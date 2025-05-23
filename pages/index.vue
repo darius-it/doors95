@@ -88,6 +88,7 @@ const currentlyOpenWindows = useOpenWindowsStore();
 const openWindow = (windowName: string) => {
   console.log(`Opening window: ${windowName}`);
   currentlyOpenWindows.openWindows.push(windowName);
+  currentlyOpenWindows.lastClickedWindow = windowName;
 };
 
 const closeWindow = (windowName: string) => {
