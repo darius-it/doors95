@@ -64,7 +64,6 @@
 
 <script setup>
 import VueTypewriterEffect from 'vue-typewriter-effect'
-import LinkString from '~/components/misc/LinkString.vue';
 
 
 /*
