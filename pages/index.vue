@@ -136,7 +136,7 @@ function showClippyOnInstall() {
     clippyScale.value = 1;
   }, 10);
   // @ts-ignore
-  missionsStore.triggerEvent("clippy_installed")
+  missionsStore.triggerEvent("skippy_installed")
 
 }
 function hideClippy() {
