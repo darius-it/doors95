@@ -84,11 +84,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* ...styles unchanged... */
 .window95 {
   position: absolute;
-  min-width: 800px;
-  min-height: 560px;
+  min-width: 200px;
+  min-height: 100px;
   background: #c0c0c0;
   border: 2px solid #fff;
   border-bottom-color: #808080;
