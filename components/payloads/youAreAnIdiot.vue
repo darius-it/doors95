@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <audio ref="vineBoom" loop>
-      <source src="../public/audio/vine-boom.mp3" type="audio/mpeg" />
+      <source src="/audio/vine-boom.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
     <audio ref="metalPipe" loop>
-      <source src="../public/audio/metal-pipe.mp3" type="audio/mpeg" />
+      <source src="/audio/metal-pipe.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
