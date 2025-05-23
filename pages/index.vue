@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex flex-col gap-4">
+  <div class="p-4 flex flex-col gap-4" :class="colorShiftEnabled ? 'color-shift':''">
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
@@ -68,6 +68,7 @@
   import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
 
   const clippyBubble = ref();
+  const colorShiftEnabled = ref(false);
 
   // Add scale ref for animation
   const clippyScale = ref(1);
@@ -125,3 +126,18 @@
     currentlyOpenWindows.setLastClickedWindow(windowName);
   };
 </script>
+<style scoped>
+@keyframes hueShift {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.color-shift {
+  animation: hueShift 15s linear infinite;
+}
+
+</style>
