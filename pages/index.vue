@@ -1,7 +1,7 @@
 <template>
   <div class="p-4 flex flex-col gap-4">
     <DesktopWindow 
-      name="Thunderbird" 
+      name="Mail" 
       :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows"
       @clickInsideWindow="setLastClickedWindow" 
@@ -20,7 +20,7 @@
 
     <div id="row-1" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
-        windowName="Thunderbird"
+        windowName="Mail"
         @openWindow="(windowName) => openWindow(windowName)"
         class="flex-1 flex flex-col items-center min-w-[20px]"
       >
