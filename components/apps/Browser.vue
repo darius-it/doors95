@@ -1,31 +1,34 @@
 <template ref="Browser">
-    <div class="top-bar w-full min-w-[60vh]">
-        <ul>
-            <li v-for="p in open_pages">
-                <button @click="makeActive(p.name)">
-                    {{p.name}}
-                </button>
-                <button @click="close(p.name)">
-                    X
-                </button>
-            </li>
-            <li>
-                <button @click="open('Google')">
-                    +
-                </button>
-            </li>
-        </ul>
-    </div>
-    <div class="w-full min-h-[55vh] min-w-[60vw] web-page">
-        <blank v-if="active_page.name == 'blank'"/>
-        <google v-if="active_page.name == 'Google'"/>
-        <kanban v-if="active_page.name == 'Kanban'"/>
-        <dino v-if="active_page.name == 'Dino'"/>
-        <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
-        <mcr1 v-if="active_page.name == 'Minecraft'"/>
-        <mcr2 v-if="active_page.name == 'Minceraft'"/>
-        <mcr3 v-if="active_page.name == 'Minecroft'"/>
-        <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
+    <div class="bg">
+        <div class="top-bar w-full min-w-[60vh]">
+            <ul>
+                <li v-for="p in open_pages">
+                    <button @click="makeActive(p.name)">
+                        {{p.name}}
+                    </button>
+                    <button @click="close(p.name)">
+                        X
+                    </button>
+                </li>
+                <li>
+                    <button @click="open('Google')">
+                        +
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="w-full min-h-[55vh] min-w-[60vw] web-page">
+            <blank v-if="active_page.name == 'blank'"/>
+            <google v-if="active_page.name == 'Google'"/>
+            <kanban v-if="active_page.name == 'Kanban'"/>
+            <dino v-if="active_page.name == 'Dino'"/>
+            <minecraftsearch v-if="active_page.name == 'minecraft - Google search'"/>
+            <mcr1 v-if="active_page.name == 'Minecraft'"/>
+            <mcr2 v-if="active_page.name == 'Minceraft'"/>
+            <mcr3 v-if="active_page.name == 'Minecroft'"/>
+            <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
+            <inception v-if="active_page.name == 'Inception'"/>
+        </div>
     </div>
 </template>
 
@@ -39,6 +42,7 @@ import mcr1 from '../browserpages/mcr1'
 import mcr2 from '../browserpages/mcr2'
 import mcr3 from '../browserpages/mcr3'
 import mcr4 from '../browserpages/mcr4'
+import inception from '../browserpages/inception'
 
 const web_pages=ref([
     {name: "Google", url: "www.google.com"},
@@ -48,7 +52,8 @@ const web_pages=ref([
     {name: "Minecraft", url: "www.minecraft.com"},
     {name: "Minceraft", url: "www.minceraft.com"},
     {name: "Minecroft", url: "www.minecroft.com"},
-    {name: "Minecraft Online", url: "www.minecraft-online.com"}])
+    {name: "Minecraft Online", url: "www.minecraft-online.com"},
+    {name: "Inception", url: "www.inception.com"}])
 
 const open_pages = ref(new Array())
 const active_page = ref({name: "Google", url: "www.google.com"})
@@ -111,5 +116,8 @@ li {
 }
 .web-page{
     margin:5px;
+}
+.bg{
+    background-color: #F5F5F5
 }
 </style>

@@ -269,4 +269,13 @@ function handleClick(id) {
   text-decoration: underline;
 
 }
+.link-button {
+  /*background-color: #1d4ed8;*/
+  color: blue;
+  border: none;
+  padding: 0.5rem 0rem;
+  cursor: pointer;
+  text-decoration: underline;
+
+}
 </style>

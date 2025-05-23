@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       query: '',
-      validTerms: ['google', 'minecraft', 'free minecraft', 'minecraft download'],
+      validTerms: ['google', 'minecraft', 'free minecraft', 'minecraft download', 'inception'],
       suggestions: [],
       highlightedIndex: -1,
       searchResult: ''
@@ -75,8 +75,10 @@ export default {
         emitter.emit("closePage", "Google")
       }else if(input.match(".*google.*") != null && input != ""){
         console.log("add blue screen here");
+      }else if(input.match(".*inception.*") != null && input != ""){
+        emitter.emit("openPage", "Inception")
+        emitter.emit("closePage", "Google")
       }else if(input == ""){
-
       }else{
         emitter.emit("openPage", "Dino")
         emitter.emit("closePage", "Google")
@@ -157,7 +159,7 @@ body {
 }
 
 button {
-  background: #f8f9fa;
+  background: lightgray;
   border: 1px solid #f8f9fa;
   border-radius: 4px;
   padding: 10px 20px;

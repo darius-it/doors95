@@ -1,18 +1,12 @@
 <template>
   <div v-if="visible" class="speech-bubble">
     <div class="bubble-text">
-      <VueTypewriterEffect
-        :strings="[clippyText]"
-        :autoStart="true"
-        :loop="false"
-        :delay="0.01"
-        :deleteSpeed="0"
-        :pauseFor="999999999999"
-        :key="clippyText"
-        cursor=" "
-        class="text-gray-800 whitespace-pre-line"
-      />
-      <button @click="hideBubble" class="okay-button">Okay</button>
+      <VueTypewriterEffect :strings="[clippyText]" :autoStart="true" :loop="false" :delay="0.01" :deleteSpeed="0"
+        :pauseFor="999999999999" :key="clippyText" cursor=" " class="text-gray-800 whitespace-pre-line" />
+      <button v-if="showOkayButton" @click="hideBubble" class="okay-button">Okay</button>
+      <button v-if="showCertificateButton" @click="handleCertificateClick" class="okay-button">
+        CERTIFICATE
+      </button>
     </div>
   </div>
 </template>
@@ -27,6 +21,8 @@ export default {
     return {
       visible: true,
       clippyText: '',
+      showCertificateButton: false,
+      showOkayButton: true,
     };
   },
   methods: {
@@ -38,6 +34,26 @@ export default {
     },
     setText(text) {
       this.clippyText = text;
+      // Use nextTick to ensure reactivity after text update
+      this.$nextTick(() => {
+        if (text.includes("Get your certificate")) {
+          this.showCertificateButton = true;
+          this.showOkayButton = false;
+        } else {
+          this.showCertificateButton = false;
+          this.showOkayButton = true;
+        }
+      });
+    },
+    handleCertificateClick() {
+      // Implement your certificate logic here, e.g. open a modal, download, etc.
+      // alert('Certificate awarded!');
+      //TODO: bluescreen
+      const payloadsStore = usePayloadsStore()
+      // payloadsStore.
+      setTimeout(() => {
+        payloadsStore.bluescreen = true
+      }, 900)
     }
   },
 };
@@ -96,6 +112,7 @@ export default {
   border-radius: 4px;
   font-weight: bold;
 }
+
 .okay-button:hover {
   background-color: #ddd;
 }

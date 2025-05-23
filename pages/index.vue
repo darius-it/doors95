@@ -206,7 +206,28 @@ window.getLatestStateTriggered = () => missionsStore.getLatestStateTriggered.cal
 // @ts-ignore
 window.missionsStore = missionsStore;
 
+function plotTwist() {
+  setTimeout(() => {
+    const browserRef = (window as any).$refs?.browser || null;
+    if (browserRef && typeof browserRef.sendEscapeKey === 'function') {
+      browserRef.sendEscapeKey();
+    }
+
+    missionsStore.triggerEvent("plottwist1");
+    // colorShiftEnabled.value = true;
+    setTimeout(() => {
+      missionsStore.triggerEvent("plottwist2");
+    }, 5000);
+  }, 9500);
+}
+
 const openWindow = (windowName: string) => {
+    console.log("Print twists")
+
+  if (windowName == "Minecraft") {
+    plotTwist()
+  }
+
   console.log(`Opening window: ${windowName}`);
   currentlyOpenWindows.openWindow(windowName);
 };
