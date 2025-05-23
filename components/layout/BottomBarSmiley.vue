@@ -1,5 +1,5 @@
 <template>
-  <div class="text-[1.3rem] tracking-wider px-4 py-1.5">
+  <div class="text-[1.3rem] tracking-wider">
     <img :src=source alt="Smiley" width="24px" height="24px">
   </div>
 </template>
