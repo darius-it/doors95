@@ -26,6 +26,7 @@
         <mcr2 v-if="active_page.name == 'Minceraft'"/>
         <mcr3 v-if="active_page.name == 'Minecroft'"/>
         <mcr4 v-if="active_page.name == 'Minecraft Online'"/>
+        <inception v-if="active_page.name == 'Inception'"/>
     </div>
 </template>
 
@@ -39,6 +40,7 @@ import mcr1 from '../browserpages/mcr1'
 import mcr2 from '../browserpages/mcr2'
 import mcr3 from '../browserpages/mcr3'
 import mcr4 from '../browserpages/mcr4'
+import inception from '../browserpages/inception'
 
 const web_pages=ref([
     {name: "Google", url: "www.google.com"},
@@ -48,7 +50,8 @@ const web_pages=ref([
     {name: "Minecraft", url: "www.minecraft.com"},
     {name: "Minceraft", url: "www.minceraft.com"},
     {name: "Minecroft", url: "www.minecroft.com"},
-    {name: "Minecraft Online", url: "www.minecraft-online.com"}])
+    {name: "Minecraft Online", url: "www.minecraft-online.com"},
+    {name: "Inception", url: "www.inception.com"}])
 
 const open_pages = ref(new Array())
 const active_page = ref({name: "Google", url: "www.google.com"})
