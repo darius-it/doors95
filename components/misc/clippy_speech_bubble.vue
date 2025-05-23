@@ -1,15 +1,28 @@
 <template>
   <div v-if="visible" class="speech-bubble">
     <div class="bubble-text">
-      <slot>{{ clippyText }}</slot>
+      <VueTypewriterEffect
+        :strings="[clippyText]"
+        :autoStart="true"
+        :loop="false"
+        :delay="0.01"
+        :deleteSpeed="0"
+        :pauseFor="999999"
+        :key="clippyText"
+        cursor=" "
+        class="text-gray-800 whitespace-pre-line"
+      />
       <button @click="hideBubble" class="okay-button">Okay</button>
     </div>
   </div>
 </template>
 
 <script>
+import VueTypewriterEffect from 'vue-typewriter-effect'
+
 export default {
   name: 'SpeechBubble',
+  components: { VueTypewriterEffect },
   data() {
     return {
       visible: true,
