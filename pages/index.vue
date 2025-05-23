@@ -1,5 +1,8 @@
 <template>
   <div class="p-4 flex flex-col gap-4 overflow-hidden" :class="colorShiftEnabled ? 'color-shift' : ''">
+
+    <PayloadsAntRunner v-if="payloadsState.antRunner"/>
+
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
@@ -41,31 +44,23 @@
           <IconDino />
         </DesktopIcon>
       </div>
-      <div class="flex flex-row gap-4 items-center">
-        <DesktopIcon windowName="Minecraft" @openWindow="(windowName) => openWindow(windowName)"
+    </div>
+
+    <div id="row-2" class="flex flex-row justify-between items-center w-full gap-4">
+      <!-- Left-aligned icons -->
+      <div class="flex flex-row gap-4 items-center ml-4">
+        <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
+          class="flex flex-col items-center min-w-[16px] flex-1">
+          <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
+        </DesktopIcon>
+      </div>
+      <!-- Right-aligned icon -->
+      <div class="flex flex-row gap-4 items-center mr-2">
+        <DesktopIcon v-if="currentlyOpenWindows.installableSoftware.minecraft" windowName="Minecraft" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
           <IconMinecraft />
         </DesktopIcon>
       </div>
-    </div>
-
-    <div id="row-2" class="flex flex-row justify-between items-center w-full max-w-md gap-4">
-      <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
-        class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
-      </DesktopIcon>
-      <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
-        class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
-      </DesktopIcon>
-      <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
-        class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
-      </DesktopIcon>
-      <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
-        class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
-      </DesktopIcon>
     </div>
 
     <!-- Skippy Start Overlay (z-[9500]) -->
@@ -94,6 +89,7 @@ import SkippyStart from '~/pages/skippy_start.vue';
 import SkippyInput from '~/pages/skippy_input.vue';
 
 const currentlyOpenWindows = useOpenWindowsStore();
+const payloadsState = usePayloadsStore();
 
 const clippyBubble = ref();
 const colorShiftEnabled = ref(false);

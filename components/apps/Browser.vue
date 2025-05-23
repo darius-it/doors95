@@ -36,7 +36,7 @@ function open(name) {
             open_pages.value.push(page)
             active_page.value = page
         }
-    });
+    })
 }
 function close(name) {
     for (let i = 0; i < open_pages.value.length; i++) {
@@ -63,6 +63,9 @@ function closeCurrent() {
 
 open("Kanban")
 open("Google")
+
+import emitter from "@/components/misc/eventHandler"
+emitter.on("openPage", e => open(e))
 
 </script>
 
