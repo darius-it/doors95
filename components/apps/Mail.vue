@@ -213,12 +213,15 @@ function handleClick(id) {
   //otherwise 
   if (id == 1) {
     payloadStore.antRunner = true
+    missionsStore.triggerEvent("phishing1")
   }
   else if (id == 2) {
     payloadStore.you_are_an_idiot = true
+    missionsStore.triggerEvent("phishing1")
   }
   else if (id == 3) {
     payloadStore.bluescreen = true
+    missionsStore.triggerEvent("phishing1")
   }
   else if (id == 5) {
     wrongLinkClicked = true
@@ -227,6 +230,7 @@ function handleClick(id) {
   }
   else if (id == 6) {
     payloadStore.ransomware = true
+    missionsStore.triggerEvent("phishing1")
   }
 }
 </script>

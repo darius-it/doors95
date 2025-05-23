@@ -48,7 +48,7 @@ function submitName() {
 function clientNotification() {
   setTimeout(() => {
     missionsStore.triggerEvent("delay")
-  }, 5000)
+  }, 6400)
 }
 </script>
 
