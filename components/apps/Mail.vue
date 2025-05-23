@@ -40,15 +40,30 @@
             <p class="text-sm text-gray-500">{{ selectedMail.date }}</p>
           </div>
           <hr class="my-2 border-gray-300 mb-2 pb-2" />
+              <!-- <VueTypewriterEffect
+                :strings="[selectedMail.body]"
+                :autoStart="true"
+                :loop="false"
+                :delay="0.1"
+                :deleteSpeed="0"
+                :pauseFor="999999"
+                :key="selectedMail.id"
+                cursor=" "
+                class="text-gray-800 whitespace-pre-line"
+              /> -->
           <p class="text-gray-800 whitespace-pre-line">{{ selectedMail.body }}</p>
         </div>
         <div v-else class="text-gray-500 text-center mt-20">
-          Bitte eine E-Mail aus der Liste auswählen.
+          Select a Mail.
         </div>
       </main>
     </div>
   </div>
 </template>
+
+<script setup>
+import VueTypewriterEffect from 'vue-typewriter-effect'
+</script>
 
 <script>
 export default {
@@ -117,7 +132,7 @@ PayPal Security Team`,
     sender: 'kevin.it@internal-support.org',
     subject: 'URGENT: Security update requires your assistance',
     date: '2025-05-19',
-    body: `Hi Max,
+    body: `Hi,
 
 We're rolling out a critical security patch across all workstations.
 
@@ -133,7 +148,7 @@ Kevin (IT Helpdesk)`,
     id: 5,
     sender: 'application@outlook.com',
     subject: 'Application for your job posting – 21 May 2025',
-    date: '2025-05-21',
+    date: '2025-05-19',
     body: `Dear Sir or Madam,
 
 Attached you will find my full application documents in PDF format.
@@ -150,7 +165,7 @@ Attachment: Application_AnnaLehmann.pdf.exe`,
     id: 6,
     sender: 'winner@amzn-prizecenter.com',
     subject: 'Congratulations! You’ve won a €100 Amazon voucher!',
-    date: '2025-05-23',
+    date: '2025-05-18',
     body: `Dear participant,
 
 You’ve been randomly selected as the winner of a €100 Amazon gift card!
