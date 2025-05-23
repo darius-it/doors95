@@ -20,7 +20,7 @@
 
     <div id="row-1" class="flex flex-row items-center justify-start w-full max-w-md">
       <DesktopIcon
-        windowName="Thunderbirb"
+        windowName="Mail"
         @openWindow="(windowName) => openWindow(windowName)"
         class="flex-1 flex flex-col items-center min-w-[20px]"
       >
