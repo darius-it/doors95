@@ -7,7 +7,8 @@ export const usePayloadsStore = defineStore("payloads", {
     cube: false,
     kirby_paris_hydra: false,
     ransomware: false,
-    you_are_an_idiot: false
+    you_are_an_idiot: false,
+    bobr_kurwa: false
   }),
   actions: {
     

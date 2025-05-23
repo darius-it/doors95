@@ -7,6 +7,7 @@
     <PayloadsKirbyParisHydra v-if="payloadsState.kirby_paris_hydra"/>
     <PayloadsRansomware v-if="payloadsState.ransomware"/>
     <PayloadsYouAreAnIdiot v-if="payloadsState.you_are_an_idiot"/>
+    <PayloadsBobrKurwa v-if="payloadsState.bobr_kurwa"/>
 
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
