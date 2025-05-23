@@ -26,7 +26,7 @@ onMounted(() => {
       const changeChance = Math.random()
       if (changeChance < 0.8) {
         // 80% chance to increase
-        percentage.value = Math.min(percentage.value + 0.3, 99.99)
+        percentage.value = Math.min(percentage.value + 0.5, 99.99)
       } else {
         // 20% chance to decrease, but not below 0
         percentage.value = Math.max(percentage.value - 0.1, 0)
