@@ -1,5 +1,5 @@
 <template>
-  <div ref="cubeContainer" class="cube-container"></div>
+  <div ref="cubeContainer" class="cube-container pointer-events-none"></div>
 </template>
 
 <script setup>
