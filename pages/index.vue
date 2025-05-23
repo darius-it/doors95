@@ -49,7 +49,7 @@
     </div>
 
     <!-- Underlay Window in lower right -->
-    <div class="fixed bottom-4 right-4 z-50 pointer-events-none" style="width: 340px; height: 180px;">
+    <div class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">

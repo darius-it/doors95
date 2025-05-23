@@ -1,6 +1,6 @@
 <template>
   <div
-    class="loading-screen"
+    class="loading-screen z-[11000]"
     :class="{ 'fade-out': stage === 2 && fadeOut }"
     v-if="stage < 3"
   >
