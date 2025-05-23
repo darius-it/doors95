@@ -49,6 +49,9 @@ export const useMissionsStore = defineStore("missions", {
         infectionLevel: this.infectionLevel,
         latest_trigger_triggered: this.latest_trigger_triggered
       }, null, 2);
+    },
+    getLatestStateTriggered() {
+      return this.latest_trigger_triggered;
     }
   }
 })

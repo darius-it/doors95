@@ -118,6 +118,8 @@
   // @ts-ignore
   window.getMissionState = () => missionsStore.getStateString.call(missionsStore);
   // @ts-ignore
+  window.getLatestStateTriggered = () => missionsStore.getLatestStateTriggered.call(missionsStore);
+  // @ts-ignore
   window.missionsStore = missionsStore;
 
   const openWindow = (windowName: string) => {
