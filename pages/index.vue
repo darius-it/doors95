@@ -1,5 +1,8 @@
 <template>
   <div class="p-4 flex flex-col gap-4 overflow-hidden" :class="colorShiftEnabled ? 'color-shift' : ''">
+
+    <PayloadsAntRunner v-if="payloadsState.antRunner"/>
+
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
@@ -94,6 +97,7 @@ import SkippyStart from '~/pages/skippy_start.vue';
 import SkippyInput from '~/pages/skippy_input.vue';
 
 const currentlyOpenWindows = useOpenWindowsStore();
+const payloadsState = usePayloadsStore();
 
 const clippyBubble = ref();
 const colorShiftEnabled = ref(false);
