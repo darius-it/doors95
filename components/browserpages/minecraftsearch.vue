@@ -22,10 +22,10 @@
 import emitter from "@/components/misc/eventHandler"
 
 const pages = ref([
-    {name:"Minecraft", url:"minecraft.com", description:"Download Minecraft"},
     {name:"Minecraft", url:"minceraft.com", description:"Download Minecraft for Free now!"},
-    {name:"Minecraft", url:"minecroft.com", description:"Download Minecraft"},
-    {name:"Minecraft Online", url:"minecraft-online.com", description:"Play Minecraft online"}
+    {name:"Minecraft Online", url:"minecraft-online.com", description:"Play Minecraft online"},
+    {name:"Minecraft", url:"minecraft.com", description:"Download Minecraft"},
+    {name:"Minecraft", url:"minecroft.com", description:"Download Minecraft from the original page"},
 ])
 
 
