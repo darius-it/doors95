@@ -83,6 +83,7 @@ onMounted(() => {
   overflow:hidden;
   width: 100vw;
   height: 100vh;
+  z-index: 1000000000000000000000000000000000
 }
 .ant {
   position: absolute;

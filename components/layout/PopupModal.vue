@@ -20,9 +20,10 @@ export default {
         border: '1px solid black',
         padding: '1rem',
         background: 'white',
-        zIndex: 1000
+        zIndex: 100000000000000000000
       };
     }
   }
 }
 </script>
+

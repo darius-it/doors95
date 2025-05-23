@@ -2,6 +2,11 @@
   <div class="p-4 flex flex-col gap-4 overflow-hidden" :class="colorShiftEnabled ? 'color-shift' : ''">
 
     <PayloadsAntRunner v-if="payloadsState.antRunner"/>
+    <PayloadsBluescreen v-if="payloadsState.bluescreen"/>
+    <PayloadsCube v-if="payloadsState.cube"/>
+    <PayloadsKirbyParisHydra v-if="payloadsState.kirby_paris_hydra"/>
+    <PayloadsRansomware v-if="payloadsState.ransomware"/>
+    <PayloadsYouAreAnIdiot v-if="payloadsState.you_are_an_idiot"/>
 
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
