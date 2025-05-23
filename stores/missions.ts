@@ -6,6 +6,8 @@ export const useMissionsStore = defineStore("missions", {
     onboardingCompleted: false,
     userName: "",
 
+    infectionLevel: 0,
+
     missions: [
       {
         name: "Task 1: Read your friend's email",
