@@ -24,14 +24,14 @@
         @openWindow="(windowName) => openWindow(windowName)"
         class="flex-1 flex flex-col items-center min-w-[20px]"
       >
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
+        <IconMail />
       </DesktopIcon>
       <DesktopIcon
         windowName="Browser"
         @openWindow="(windowName) => openWindow(windowName)"
         class="flex-1 flex flex-col items-center min-w-[20px]"
       >
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
+        <IconFolder />
       </DesktopIcon>
       <DesktopIcon
         windowName="Start"
