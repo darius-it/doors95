@@ -68,6 +68,24 @@ export const useMissionsStore = defineStore("missions", {
     },
     getLatestStateTriggered() {
       return this.latest_trigger_triggered;
+    },
+    addInfectionLevel(rate: number) {
+      this.infectionLevel += rate;
+
+      // trigger blue screen if infection level is 95+
+      if (this.infectionLevel <= 95) {
+        this.infectionLevel = 100;
+        const payloadsStore = usePayloadsStore();
+
+        payloadsStore.antRunner = false;
+        payloadsStore.bobr_kurwa = false;
+        payloadsStore.cube = false;
+        payloadsStore.kirby_paris_hydra = false;
+        payloadsStore.ransomware = false;
+        payloadsStore.you_are_an_idiot = false;
+
+        payloadsStore.bluescreen = true;
+      }
     }
   }
 })
