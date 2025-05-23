@@ -1,4 +1,4 @@
-<template>
+<template ref="Browser">
     <div class="top-bar w-full min-w-[60vh]">
         <ul>
             <li v-for="p in open_pages">

@@ -8,7 +8,7 @@
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
-      <AppsBrowser />
+      <AppsBrowser ref="browser"/>
     </DesktopWindow>
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
@@ -195,6 +195,7 @@ const setLastClickedWindow = (windowName: string) => {
   console.log(`Last clicked window: ${windowName}`);
   currentlyOpenWindows.setLastClickedWindow(windowName);
 };
+
 </script>
 <style scoped>
 @keyframes hueShift {
@@ -210,4 +211,5 @@ const setLastClickedWindow = (windowName: string) => {
 .color-shift {
   animation: hueShift 15s linear infinite;
 }
+
 </style>

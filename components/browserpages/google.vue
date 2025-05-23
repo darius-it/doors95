@@ -3,3 +3,7 @@
         Google
     </div>
 </template>
+
+<script setup>
+
+</script>
