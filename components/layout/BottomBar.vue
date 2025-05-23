@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-bottom-bar py-1 px-1 flex justify-between items-center">
+  <div class="w-full bg-bottom-bar py-1 px-1 flex justify-between items-center z-[5000]">
     <div id="bottom-bar-left" class="flex items-center gap-3">
       <LayoutBottomBarButton>
         <div class="flex flex-row items-center justify-start gap-2 w-14 -mx-2 cursor-pointer">
@@ -13,7 +13,7 @@
           v-for="window in currentlyOpenWindows.openWindows" :key="window"
           @click="currentlyOpenWindows.setLastClickedWindow(window)"
         >
-          <div class="text-left flex flex-row items-start justify-start w-16 -ml-2 pr-12 cursor-pointer">
+          <div class="text-left flex flex-row items-start justify-start w-16 -ml-2 pr-32 cursor-pointer">
             {{ window }}
           </div>
         </LayoutBottomBarButton>

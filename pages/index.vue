@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex flex-col gap-4" :class="colorShiftEnabled ? 'color-shift':''">
+  <div class="p-4 flex flex-col gap-4 overflow-hidden" :class="colorShiftEnabled ? 'color-shift':''">
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Underlay Window in lower right -->
-    <div class="fixed bottom-4 right-4 z-50 pointer-events-none" style="width: 340px; height: 180px;">
+    <div class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">
@@ -67,9 +67,10 @@
   import { ref } from 'vue'
   import ClippySpeechBubble from '~/components/misc/clippy_speech_bubble.vue';
 
+  const currentlyOpenWindows = useOpenWindowsStore();
+
   const clippyBubble = ref();
   const colorShiftEnabled = ref(false);
-
   // Add scale ref for animation
   const clippyScale = ref(1);
 
@@ -108,8 +109,6 @@
   window.setClippyText = setClippyText;
   // @ts-ignore
   window.animateClippy = animateClippy;
-
-  const currentlyOpenWindows = useOpenWindowsStore();
 
   const openWindow = (windowName: string) => {
     console.log(`Opening window: ${windowName}`);

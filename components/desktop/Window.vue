@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="absolute top-0 left-0 w-full h-full bg-transparent flex flex-col items-center justify-center pointer-events-none"
+    class="absolute top-0 left-0 w-full h-full bg-transparent flex flex-col items-center justify-center pointer-events-none overflow-hidden"
     :style="{ zIndex: windowZIndex }"
     v-show="isOpen"
   >
