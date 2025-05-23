@@ -215,17 +215,17 @@ function handleClick(id) {
   if (id == 1) {
     payloadStore.antRunner = true
     missionsStore.triggerEvent("phishing2")
-    missionsStore.infectionLevel += 40
+    missionsStore.addInfectionLevel(40)
   }
   else if (id == 2) {
     payloadStore.you_are_an_idiot = true
     missionsStore.triggerEvent("phishing2")
-    missionsStore.infectionLevel += 70
+    missionsStore.addInfectionLevel(70)
   }
   else if (id == 3) {
     missionsStore.triggerEvent("phishing2")
     payloadStore.cube = true
-    missionsStore.infectionLevel += 30
+    missionsStore.addInfectionLevel(30)
   }
   else if (id == 5) {
     wrongLinkClicked = true
@@ -244,7 +244,7 @@ function handleClick(id) {
   else if (id == 6) {
     missionsStore.triggerEvent("phishing2")
     payloadStore.bobr_kurwa = true
-    missionsStore.infectionLevel += 30
+    missionsStore.addInfectionLevel(30)
   }
 }
 </script>
