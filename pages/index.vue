@@ -55,7 +55,7 @@
     </div>
 
     <!-- Underlay Window in lower right -->
-    <div class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
+    <div v-if="clippyVisible" class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">
@@ -79,6 +79,7 @@ const clippyBubble = ref();
 const colorShiftEnabled = ref(false);
 // Add scale ref for animation
 const clippyScale = ref(1);
+const clippyVisible = ref(true);
 
 function showClippyBubble() {
   if (
@@ -110,11 +111,22 @@ function animateClippy() {
   }, 180);
 }
 
+function showClippy() {
+  clippyVisible.value = true;
+}
+function hideClippy() {
+  clippyVisible.value = false;
+}
+
 // Expose to console for debugging
 // @ts-ignore
 window.setClippyText = setClippyText;
 // @ts-ignore
 window.animateClippy = animateClippy;
+// @ts-ignore
+window.showClippy = showClippy;
+// @ts-ignore
+window.hideClippy = hideClippy;
 
 // Expose to console for debugging
 // @ts-ignore
