@@ -7,11 +7,18 @@
     </DesktopWindow>
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
-      @close="closeWindow" />
+      @close="closeWindow">
+      <AppsBrowser/>
+    </DesktopWindow>
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
       <AppsDinoGame />
+    </DesktopWindow>
+    <DesktopWindow name="Antivirus" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsAntivirus />
     </DesktopWindow>
     <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" @close="closeWindow"><AppsMinecraftGame/></DesktopWindow>
 
@@ -24,7 +31,7 @@
         </DesktopIcon>
         <DesktopIcon windowName="Browser" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
-          <IconFolder />
+          <img src="/icons/browser.png" alt="Antivirus Icon" class="w-14 h-14 mb-0.5" />
         </DesktopIcon>
       </div>
       <!-- Right-aligned icon -->
@@ -43,9 +50,9 @@
     </div>
 
     <div id="row-2" class="flex flex-row justify-between items-center w-full max-w-md gap-4">
-      <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
+      <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
         class="flex flex-col items-center min-w-[16px] flex-1">
-        <img src="/icons/folder.png" alt="Start Icon" class="w-16 h-16" />
+        <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
       </DesktopIcon>
       <DesktopIcon windowName="Start" @openWindow="(windowName) => openWindow(windowName)"
         class="flex flex-col items-center min-w-[16px] flex-1">
@@ -62,7 +69,7 @@
     </div>
 
     <!-- Underlay Window in lower right -->
-    <div class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
+    <div v-if="clippyVisible" class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">
@@ -86,6 +93,7 @@ const clippyBubble = ref();
 const colorShiftEnabled = ref(false);
 // Add scale ref for animation
 const clippyScale = ref(1);
+const clippyVisible = ref(true);
 
 function showClippyBubble() {
   if (
@@ -117,11 +125,22 @@ function animateClippy() {
   }, 180);
 }
 
+function showClippy() {
+  clippyVisible.value = true;
+}
+function hideClippy() {
+  clippyVisible.value = false;
+}
+
 // Expose to console for debugging
 // @ts-ignore
 window.setClippyText = setClippyText;
 // @ts-ignore
 window.animateClippy = animateClippy;
+// @ts-ignore
+window.showClippy = showClippy;
+// @ts-ignore
+window.hideClippy = hideClippy;
 
 // Expose to console for debugging
 // @ts-ignore
