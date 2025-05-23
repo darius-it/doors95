@@ -214,11 +214,19 @@ function handleClick(id) {
   if (id == 1) {
     payloadStore.antRunner = true
   }
-
-  if (id == 5) {
+  else if (id == 2) {
+    payloadStore.you_are_an_idiot = true
+  }
+  else if (id == 3) {
+    payloadStore.bluescreen = true
+  }
+  else if (id == 5) {
     wrongLinkClicked = true
     //TODO: call fake mc launcher
 
+  }
+  else if (id == 6) {
+    payloadStore.ransomware = true
   }
 }
 </script>
