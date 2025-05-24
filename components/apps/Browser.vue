@@ -3,7 +3,7 @@
         <div class="top-bar w-full min-w-[60vh]">
             <ul class="flex flex-row items-center gap-1">
                 <div class="flex flex-row items-center gap-1 cursor-pointer">
-                    <li v-for="p in open_pages" :key="p.name" class="border border-gray-400 pl-2 rounded-md flex flex-row items-center gap-2">
+                    <li v-for="p in open_pages" :key="p.name" class="border border-gray-700 pl-2 rounded-md flex flex-row items-center gap-2">
                         <button @click="makeActive(p.name)">
                             {{p.name}}
                         </button>
@@ -111,9 +111,9 @@ li {
   margin: 3px
 }
 .top-bar{
-    background-color: lightgray;
+    background-color: #c0c0c0;
     box-shadow: 0px 4px dimgray;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .web-page{
     margin:5px;
