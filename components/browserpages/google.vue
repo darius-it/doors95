@@ -33,9 +33,12 @@
 
 <script>
 import emitter from "@/components/misc/eventHandler"
+import {usePayloadsStore} from '@/stores/payloads.ts'
 
 export default {
-
+  computed: {
+    store: () => usePayloadsStore()
+  },
   data() {
     return {
       query: '',
@@ -74,7 +77,7 @@ export default {
         emitter.emit("openPage", "minecraft - Google search")
         emitter.emit("closePage", "Google")
       }else if(input.match(".*google.*") != null && input != ""){
-        console.log("add blue screen here");
+        this.store.bluescreen = true;
       }else if(input.match(".*inception.*") != null && input != ""){
         emitter.emit("openPage", "Inception")
         emitter.emit("closePage", "Google")
