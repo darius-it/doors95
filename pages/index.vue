@@ -47,9 +47,15 @@
       <AppsMinecraftGame/>
     </DesktopWindow>
 
+    <DesktopWindow name="Scamcyclopedia" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsScamcyclopedia />
+    </DesktopWindow>
+
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
-      <div class="flex flex-row gap-15 items-center ml-5">
+      <div class="flex flex-row gap-17 items-center ml-5">
         <DesktopIcon windowName="Mail" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px]">
           <img src="/icons/email.png" alt="Mail Icon" class="w-14 h-14 mb-1" />
@@ -70,10 +76,14 @@
 
     <div id="row-2" class="flex flex-row justify-between items-center w-full gap-4">
       <!-- Left-aligned icons -->
-      <div class="flex flex-row gap-4 items-center ml-4">
+      <div class="flex flex-row gap-8 items-center">
         <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px] flex-1">
           <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
+        </DesktopIcon>
+        <DesktopIcon windowName="Scamcyclopedia" @openWindow="(windowName) => openWindow(windowName)"
+          class="flex flex-col items-center min-w-[16px] flex-1">
+          <img src="/icons/books.png" alt="Books Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
         </DesktopIcon>
       </div>
       <!-- Right-aligned icon -->
@@ -189,6 +199,7 @@ window.hideClippy = hideClippy;
 // Expose to console for debugging
 // @ts-ignore
 import { useMissionsStore } from '~/stores/missions';
+
 // @ts-ignore
 const missionsStore = useMissionsStore();
 // @ts-ignore
