@@ -28,7 +28,7 @@ onMounted(() => {
   align-items: center;
   overflow: hidden;
   position: absolute;
-  z-index: 100000000000000000000;
+  z-index: 100006;
   top:0;
   left:0;
   background: transparent;

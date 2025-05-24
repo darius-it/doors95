@@ -5,7 +5,7 @@
       <div class="dse-buttons">
         <button @click="startScan" :disabled="scanning || disinfecting">{{ scanning ? 'Scanning...' : 'Scan' }}</button>
         <button
-          v-if="!scanning && !disinfecting && missionInfo.infectionLevel > 25"
+          v-if="!scanning && !disinfecting && missionInfo.infectionLevel > 5"
           @click="startDisinfect"
           :disabled="disinfecting"
           style="background:#4caf50; color:#fff; border-color:#388e3c;"

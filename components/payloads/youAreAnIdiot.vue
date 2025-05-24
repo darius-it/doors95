@@ -64,7 +64,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position:absolute;
-  z-index: 10000000000000000;
+  z-index: 100001;
   overflow: hidden;
 }
 </style>
