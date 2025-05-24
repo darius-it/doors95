@@ -3,8 +3,15 @@
     <header class="dse-header">
       <div class="dse-title">Doors Security Essentials</div>
       <div class="dse-buttons">
-        <button @click="startScan" :disabled="scanning">{{ scanning ? 'Scanning...' : 'Scan' }}</button>
-        <button @click="resetAndScan">Reset</button>
+        <button @click="startScan" :disabled="scanning || disinfecting">{{ scanning ? 'Scanning...' : 'Scan' }}</button>
+        <button
+          v-if="!scanning && !disinfecting && missionInfo.infectionLevel > 25"
+          @click="startDisinfect"
+          :disabled="disinfecting"
+          style="background:#4caf50; color:#fff; border-color:#388e3c;"
+        >
+          {{ disinfecting ? 'Disinfecting...' : 'Disinfect' }}
+        </button>
       </div>
     </header>
 
@@ -18,13 +25,22 @@
       </div>
 
       <div class="dse-progress-bar">
-        <div class="dse-progress" :style="{ width: progress + '%' }"></div>
+        <div
+          class="dse-progress"
+          :style="{ width: (disinfecting ? disinfectProgress : progress) + '%' }"
+          :class="{ 'bg-green-500': disinfecting }"
+        ></div>
       </div>
       <div style="text-align:center; margin-bottom:1.2rem; color:#3a6ea5; font-weight:600;">
-        Scanned {{ scannedFiles }} out of {{ totalFiles }} files ({{ scannedFiles }}/{{ totalFiles }})
+        <template v-if="disinfecting">
+          Disinfecting... {{ disinfectProgress }}%
+        </template>
+        <template v-else>
+          Scanned {{ scannedFiles }} out of {{ totalFiles }} files ({{ scannedFiles }}/{{ totalFiles }})
+        </template>
       </div>
 
-      <div v-if="!scanning && progress === 100 && warnings.length" class="dse-results">
+      <div v-if="!scanning && !disinfecting && progress === 100 && warnings.length" class="dse-results">
         <div class="dse-warnings-summary">
           <h3>Scan Report</h3>
           <ul>
@@ -42,15 +58,20 @@
 import { ref, computed, onMounted } from 'vue'
 
 const missionInfo = useMissionsStore();
+const payloadsState = usePayloadsStore();
 
 const scanning = ref(false)
 const progress = ref(0)
 const warnings = ref([])
 
+const disinfecting = ref(false)
+const disinfectProgress = ref(0)
+
 const totalFiles = 24560 // or any number you want
 const scannedFiles = computed(() => Math.round((progress.value / 100) * totalFiles))
 
 const statusClass = computed(() => {
+  if (disinfecting.value) return 'scanning'
   if (scanning.value) return 'scanning'
   if (missionInfo.infectionLevel < 25) return 'safe'
   if (missionInfo.infectionLevel < 50) return 'warning'
@@ -58,6 +79,7 @@ const statusClass = computed(() => {
 })
 
 const statusText = computed(() => {
+  if (disinfecting.value) return 'Disinfecting...'
   if (scanning.value) return 'Scanning...'
   if (missionInfo.infectionLevel < 25) return 'You are safe'
   if (missionInfo.infectionLevel < 50) return 'There are warnings'
@@ -66,6 +88,7 @@ const statusText = computed(() => {
 })
 
 const statusDesc = computed(() => {
+  if (disinfecting.value) return 'Attempting to disinfect your system. Please wait...'
   if (scanning.value) return 'Doors Security Essentials is scanning your computer for threats.'
   if (missionInfo.infectionLevel < 25) return 'No threats detected. Your computer is protected.'
   if (missionInfo.infectionLevel < 50) return 'Some issues were found. Please review the warnings below.'
@@ -74,6 +97,7 @@ const statusDesc = computed(() => {
 })
 
 const statusIcon = computed(() => {
+  if (disinfecting.value) return '/images/scanning_icon.png'
   if (scanning.value) return '/images/scanning_icon.png'
   if (missionInfo.infectionLevel < 25) return '/images/green_smiley.png'
   if (missionInfo.infectionLevel < 50) return '/images/yellow_smiley.png'
@@ -143,7 +167,7 @@ function generateWarnings(level) {
 }
 
 function startScan() {
-  if (scanning.value) return
+  if (scanning.value || disinfecting.value) return
   scanning.value = true
   progress.value = 0
   warnings.value = []
@@ -163,11 +187,40 @@ function startScan() {
 }
 
 function resetAndScan() {
+  if (disinfecting.value) return
   scanning.value = false
   progress.value = 0
   warnings.value = []
   // Start scan again
   startScan()
+}
+
+function startDisinfect() {
+  if (disinfecting.value) return
+  disinfecting.value = true
+  disinfectProgress.value = 0
+
+  // Simulate disinfect progress
+  const interval = setInterval(() => {
+    if (disinfectProgress.value >= 100) {
+      clearInterval(interval)
+      disinfecting.value = false
+
+      //Call actual disinfect feature here when implemented
+      payloadsState.antRunner = false
+      payloadsState.you_are_an_idiot = false
+      payloadsState.cube = false
+      payloadsState.bobr_kurwa = false
+      payloadsState.kirby_paris_hydra = false
+
+      missionInfo.infectionLevel = 0
+      warnings.value = []
+      progress.value = 100
+      return
+    }
+    disinfectProgress.value += 5
+    if (disinfectProgress.value > 100) disinfectProgress.value = 100
+  }, 100)
 }
 
 // Start scanning immediately on page load
