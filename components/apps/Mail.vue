@@ -77,7 +77,7 @@ const mails = ref([
 
       If this wasn't you, please click the link below immediately to secure your account:  
       `,
-    link: `http://m1crosoft-security-check.insecure-domain.xyz`,
+    link: `http://m1crosoft-security-check.mssecurity.xyz`,
     body2: `
       Thank you,  
       Microsoft Security Team`,
@@ -94,7 +94,7 @@ const mails = ref([
 
       To schedule a redelivery, please confirm your address here:  
       `,
-    link: `http://dhl.redelivery-check.co.uk.unsecure.site`,
+    link: `http://dhl.redelivery-check.co.uk.verified.site`,
     body2: `
       If we don't receive a response within 24 hours, the package will be returned.
 
