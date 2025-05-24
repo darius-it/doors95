@@ -4,15 +4,15 @@
     <ul>
       <li v-for="page in pages">
         <button @click="openPageLink(page.url)">
-            {{page.name}}
+          {{ page.name }}
         </button>
         <div class="small-gray url">
-            {{page.url}}
+          {{ page.url }}
         </div>
         <div class="desc">
-            {{page.description}}
+          {{ page.description }}
         </div>
-        <div class="padding-bottom: 100px" /> 
+        <div class="padding-bottom: 100px" />
       </li>
     </ul>
   </div>
@@ -20,33 +20,51 @@
 
 <script setup>
 import emitter from "@/components/misc/eventHandler"
+import { onMounted } from 'vue'
+import { useMissionsStore } from '~/stores/missions'
+
+const missionsStore = useMissionsStore()
 
 const pages = ref([
-    {name:"Minecraft", url:"minceraft.com", description:"Download Minecraft for Free now!"},
-    {name:"Minecraft Online", url:"minecraft-online.com", description:"Play Minecraft online"},
-    {name:"Minecraft", url:"minecraft.com", description:"Download Minecraft"},
-    {name:"Minecraft", url:"minecroft.com", description:"Download Minecraft from the original page"},
+  { name: "Minecraft", url: "minceraft.com", description: "Download Minecraft for Free now!" },
+  { name: "Minecraft Online", url: "minecraft-online.com", description: "Play Minecraft online" },
+  { name: "Minecraft", url: "minecraft.com", description: "Download Minecraft" },
+  { name: "Minecraft", url: "minecroft.com", description: "Download Minecraft from the original page" },
 ])
 
+onMounted(() => {
+  setTimeout(() => {
+    missionsStore.triggerEvent('search_results')
+  }, 1000)
+})
 
-function openPageLink(link){
-    
-    switch (link) {
-        case "minecraft.com":
-            emitter.emit("openPage", "Minecraft")
-            break
-        case "minceraft.com":
-            emitter.emit("openPage", "Minceraft")
-            break
-        case "minecroft.com":
-            emitter.emit("openPage", "Minecroft")
-            break
-        case "minecraft-online.com":
-            emitter.emit("openPage", "Minecraft Online")
-            break
-        default:
-            break
-    }
+function openPageLink(link) {
+
+  switch (link) {
+    case "minecraft.com":
+      emitter.emit("openPage", "Minecraft")
+      break
+    case "minceraft.com":
+      setTimeout(() => {
+        missionsStore.triggerEvent('scam_site')
+      }, 1000)
+      emitter.emit("openPage", "Minceraft")
+      break
+    case "minecroft.com":
+      setTimeout(() => {
+        missionsStore.triggerEvent('scam_site')
+      }, 1000)
+      emitter.emit("openPage", "Minecroft")
+      break
+    case "minecraft-online.com":
+      setTimeout(() => {
+        missionsStore.triggerEvent('scam_site')
+      }, 1000)
+      emitter.emit("openPage", "Minecraft Online")
+      break
+    default:
+      break
+  }
 }
 </script>
 
@@ -58,23 +76,28 @@ button {
   text-align: left;
   cursor: pointer;
   padding: 0px 0;
-  margin-top:10px;
+  margin-top: 10px;
   font-size: 14px;
 }
+
 button:hover {
   text-decoration: underline;
 }
+
 .small-light-gray {
   color: gray;
 }
+
 .small-gray {
   color: dimgray;
 }
-.desc{
-    font-size: 10px;
+
+.desc {
+  font-size: 10px;
 }
-.url{
-    font-size: 10px;
-    margin-bottom: 5px;
+
+.url {
+  font-size: 10px;
+  margin-bottom: 5px;
 }
 </style>

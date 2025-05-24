@@ -234,9 +234,9 @@ function handleClick(id) {
 
     setTimeout(() => {
       missionsStore.triggerEvent("phishing1")
-      setTimeout(() => {
-        missionsStore.triggerEvent("phishing1_delay")
-      }, 4000)
+      // setTimeout(() => {
+      //   missionsStore.triggerEvent("phishing1_delay")
+      // }, 4000)
     }, 5000)
 
 

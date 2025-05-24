@@ -1,13 +1,13 @@
 <template>
-  <div class="p-4 flex flex-col gap-4 overflow-hidden" :class="colorShiftEnabled ? 'color-shift' : ''">
+  <div class="p-4 flex flex-col gap-4" :class="colorShiftEnabled ? 'color-shift' : 'overflow-hidden'">
 
-    <PayloadsAntRunner v-if="payloadsState.antRunner"/>
-    <PayloadsBluescreen v-if="payloadsState.bluescreen"/>
-    <PayloadsCube v-if="payloadsState.cube"/>
-    <PayloadsKirbyParisHydra v-if="payloadsState.kirby_paris_hydra"/>
-    <PayloadsRansomware v-if="payloadsState.ransomware"/>
-    <PayloadsYouAreAnIdiot v-if="payloadsState.you_are_an_idiot"/>
-    <PayloadsBobrKurwa v-if="payloadsState.bobr_kurwa"/>
+    <PayloadsAntRunner v-if="payloadsState.antRunner" />
+    <PayloadsBluescreen v-if="payloadsState.bluescreen" />
+    <PayloadsCube v-if="payloadsState.cube" />
+    <PayloadsKirbyParisHydra v-if="payloadsState.kirby_paris_hydra" />
+    <PayloadsRansomware v-if="payloadsState.ransomware" />
+    <PayloadsYouAreAnIdiot v-if="payloadsState.you_are_an_idiot" />
+    <PayloadsBobrKurwa v-if="payloadsState.bobr_kurwa" />
 
     <DesktopWindow name="Mail" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
@@ -17,7 +17,7 @@
     <DesktopWindow name="Browser" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
-      <AppsBrowser ref="browser"/>
+      <AppsBrowser ref="browser" />
     </DesktopWindow>
     <DesktopWindow name="Dino Game" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
       :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
@@ -30,21 +30,21 @@
       <AppsAntivirus />
     </DesktopWindow>
 
-    <DesktopWindow name="Mincefrat Instaler" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
-      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+    <DesktopWindow name="Mincefrat Instaler" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
       <AppsMinecraftInstallerFake />
     </DesktopWindow>
-    <DesktopWindow name="Minecraft Installer" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
-      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+    <DesktopWindow name="Minecraft Installer" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
       <AppsMinecraftInstallerReal />
     </DesktopWindow>
 
-    <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow" 
-      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow" 
+    <DesktopWindow name="Minecraft" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
       @close="closeWindow">
-      <AppsMinecraftGame/>
+      <AppsMinecraftGame />
     </DesktopWindow>
 
     <DesktopWindow name="Scamcyclopedia" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
@@ -103,8 +103,8 @@
 
       <!-- Right-aligned icon -->
       <div class="flex flex-row gap-4 items-center mr-2">
-        <DesktopIcon v-if="currentlyOpenWindows.installableSoftware.minecraft" windowName="Minecraft" @openWindow="(windowName) => openWindow(windowName)"
-          class="flex flex-col items-center min-w-[16px]">
+        <DesktopIcon v-if="currentlyOpenWindows.installableSoftware.minecraft" windowName="Minecraft"
+          @openWindow="(windowName) => openWindow(windowName)" class="flex flex-col items-center min-w-[16px]">
           <IconMinecraft />
         </DesktopIcon>
       </div>
@@ -118,11 +118,13 @@
     </div>
 
     <!-- Skippy Start Overlay (z-[9500]) -->
-    <SkippyStart v-if="!skippyInstalled" @skippy-installed="onSkippyInstalled" style="z-index:9500; position:fixed; inset:0;" />
+    <SkippyStart v-if="!skippyInstalled" @skippy-installed="onSkippyInstalled"
+      style="z-index:9500; position:fixed; inset:0;" />
     <!-- Skippy Input Overlay (z-[9600]) -->
     <SkippyInput v-if="skippyInputVisible" style="z-index:9600; position:fixed; inset:0;" />
     <!-- Underlay Window in lower right -->
-    <div v-if="clippyVisible" class="fixed bottom-10 right-6 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
+    <div v-if="clippyVisible" class="fixed bottom-10 right-6 z-[9000] pointer-events-none"
+      style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">
@@ -249,7 +251,7 @@ function plotTwist() {
 }
 
 const openWindow = (windowName: string) => {
-    console.log("Print twists")
+  console.log("Print twists")
 
   if (windowName == "Minecraft") {
     plotTwist()
@@ -284,5 +286,4 @@ const setLastClickedWindow = (windowName: string) => {
 .color-shift {
   animation: hueShift 15s linear infinite;
 }
-
 </style>
