@@ -215,12 +215,12 @@ function handleClick(id) {
   if (id == 1) {
     payloadStore.antRunner = true
     missionsStore.triggerEvent("phishing2")
-    missionsStore.addInfectionLevel(40)
+    missionsStore.addInfectionLevel(30)
   }
   else if (id == 2) {
     payloadStore.you_are_an_idiot = true
     missionsStore.triggerEvent("phishing2")
-    missionsStore.addInfectionLevel(70)
+    missionsStore.addInfectionLevel(40)
   }
   else if (id == 3) {
     missionsStore.triggerEvent("phishing2")
