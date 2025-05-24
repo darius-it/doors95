@@ -28,7 +28,7 @@ const missionsStore = useMissionsStore()
 const pages = ref([
     {name:"Minecraft - Download", url:"https://www.minceraft.net/download", description:"Download Minecraft for Free now!"},
     {name:"Minecraft Online", url:"https://www.minecraft-online/launcher.com", description:"Play Minecraft online in an interactive iframe. No Signup required!"},
-    {name:"Minecraft", url:"https://www.launcher.minecraft.net/download", description:"The newest Version of Minecraft."},
+    {name:"Minecraft Launcher", url:"https://www.launcher.minecraft.net/download", description:"The newest Version of Minecraft."},
     {name:"Microsoft - Minecraft", url:"https://www.launcher.minecroft.com", description:"Download Minecraft from the original page."},
     {name:"Minecraft - Chip", url:"https://www.chip.de/Minecraft", description:""}
 ])
@@ -42,22 +42,22 @@ onMounted(() => {
 function openPageLink(link) {
 
   switch (link) {
-    case "https://www.minecraft.com":
+    case "https://www.launcher.minecraft.net/download":
       emitter.emit("openPage", "Minecraft")
       break
-    case "https://www.minceraft.com":
+    case "https://www.minceraft.net/download":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
       emitter.emit("openPage", "Minceraft")
       break
-    case "https://www.minecroft.com":
+    case "https://www.launcher.minecroft.com":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
       emitter.emit("openPage", "Minecroft")
       break
-    case "https://www.minecraft-online.com":
+    case "https://www.minecraft-online/launcher.com":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
