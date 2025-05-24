@@ -109,6 +109,7 @@ function clientNotification() {
   text-align: center;
   border-radius: 2px;
   margin-left: 8px;
+  padding-bottom: 4px;
   pointer-events: none;
   opacity: 0.7;
   display: flex;
