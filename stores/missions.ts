@@ -7,7 +7,7 @@ export const useMissionsStore = defineStore("missions", {
     latest_trigger_triggered: "skippy_installed",
 
     mission_triggers: {
-      "skippy_installed": "Hello! I'm Skippy, your desktop assistant. Nice work setting me up. What's your name?",
+      "skippy_installed": "Hello! I'm Skippy, your AI desktop assistant. Nice work setting me up. What's your name?",
       "name_submitted": "Great to meet you too, {name}! You're off to a fantastic start—let's keep it going!",
       "delay": "Hey {name}, Johnny just sent you an email. Great job staying on top of things—go check your inbox!",
       "email_opened": "Hmm, that looks suspicious...", //Johnny wants to play Minecraft. Let me help you install it. First, open your browser—you're doing great so far!
