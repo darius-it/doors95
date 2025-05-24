@@ -48,7 +48,7 @@ const smileySrc = computed(() => {
   if (infectionLevel.value < 25) return '/images/green_smiley.png'
   if (infectionLevel.value < 50) return '/images/yellow_smiley.png'
   if (infectionLevel.value < 75) return '/images/red_smiley.png'
-  else return '/images/cursed_smiley.jpg'
+  else return '/images/cursed_smiley.png'
 })
 
 const smileyAlt = computed(() => {

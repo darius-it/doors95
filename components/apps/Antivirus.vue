@@ -102,7 +102,7 @@ const statusIcon = computed(() => {
   if (missionInfo.infectionLevel < 25) return '/images/green_smiley.png'
   if (missionInfo.infectionLevel < 50) return '/images/yellow_smiley.png'
   if (missionInfo.infectionLevel < 75) return '/images/red_smiley.png'
-  return '/images/cursed_smiley.jpg'
+  return '/images/cursed_smiley.png'
 })
 
 // Generate warnings/errors based on missionInfo.infectionLevel
