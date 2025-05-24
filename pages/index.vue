@@ -122,12 +122,6 @@ const clippyVisible = ref(false);
 const skippyInstalled = ref(false);
 const skippyInputVisible = ref(false);
 
-onMounted(() => {
-  // Start the color shift animation
-  openWindow("Mincefrat Instaler")
-  openWindow("Minecraft Installer")
-});
-
 function showClippyBubble() {
   if (
     clippyBubble.value &&
