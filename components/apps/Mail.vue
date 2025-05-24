@@ -231,15 +231,6 @@ function handleClick(id) {
     wrongLinkClicked = true
 
     openWindowsStore.openWindow("Mincefrat Instaler")
-
-    setTimeout(() => {
-      missionsStore.triggerEvent("phishing1")
-      // setTimeout(() => {
-      //   missionsStore.triggerEvent("phishing1_delay")
-      // }, 4000)
-    }, 5000)
-
-
   }
   else if (id == 6) {
     missionsStore.triggerEvent("phishing2")

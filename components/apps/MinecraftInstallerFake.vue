@@ -70,7 +70,12 @@ function startInstall() {
       windowState.installableSoftware.minecraft = true;
       missionState.addInfectionLevel(25);
       payloadsState.antRunner = true;
-
+      setTimeout(() => {
+        missionState.triggerEvent("phishing1");
+        // setTimeout(() => {
+        //   missionState.triggerEvent("phishing1_delay");
+        // }, 4000);
+      }, 900);
     } else {
       progress.value += Math.floor(Math.random() * 25) + 1; // random big jumps
       if (progress.value > 100) progress.value = 100;
