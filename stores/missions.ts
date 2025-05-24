@@ -31,7 +31,9 @@ export const useMissionsStore = defineStore("missions", {
       "phishing2": "Whoops, that site was dangerous. Some links can install malware just by clicking! Let's run a full Antivirus scan right away.",
       "executable1": "Careful, {name}, that file type can be risky. Dangerous files like .exe or .msi from untrusted sources can carry malware. Always double-check them!",
       "plottwist1": "Congratulations, {name}! You completed the interactive cybersecurity course - awesome job!",
-      "plottwist2": "That took focus and smart thinking, and it really shows. Get your certificate here — well earned!"
+      "plottwist2": "That took focus and smart thinking, and it really shows. Get your certificate here — well earned!",
+      "search_results": "Why do all of these look the same, {name}? Take a closer look—some might be fake or unsafe links trying to trick you.",
+      "scam_site": "Hmm, {name}, that site doesn't look quite right. It could be a scam—better to back out and double-check the URL."
     }
   }),
   actions: {
