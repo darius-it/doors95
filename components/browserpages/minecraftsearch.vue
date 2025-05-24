@@ -41,22 +41,22 @@ onMounted(() => {
 function openPageLink(link) {
 
   switch (link) {
-    case "minecraft.com":
+    case "https://www.minecraft.com":
       emitter.emit("openPage", "Minecraft")
       break
-    case "minceraft.com":
+    case "https://www.minceraft.com":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
       emitter.emit("openPage", "Minceraft")
       break
-    case "minecroft.com":
+    case "https://www.minecroft.com":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
       emitter.emit("openPage", "Minecroft")
       break
-    case "minecraft-online.com":
+    case "https://www.minecraft-online.com":
       setTimeout(() => {
         missionsStore.triggerEvent('scam_site')
       }, 1000)
