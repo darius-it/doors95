@@ -149,7 +149,7 @@ Kevin (IT Helpdesk)`,
 
   If you don’t have it installed yet, you can grab the installer here:  
   `,
-    link: `https://launcher.minecraft.net/download/MinecraftInstaller.exe`,
+    link: `https://launcher-offcial.minecraft-dl.net/download/MinecraftInstaller.exe`,
     body2: `
   Let me know once you’re set up. Server should be live by 8 PM. I’ll send the IP then!
 
