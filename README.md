@@ -64,16 +64,29 @@ After you cloned the repository, first install dependencies using `pnpm i`.
 - For the local development server, you can run `pnpm run dev`
 - To build for production, run `pnpm generate`
 
-## Why Doors95?
+## Future Potential
 
-- **Educational Impact:**  
-    Doors95 provides a fun, hands-on way to learn about cybersecurity threats in a familiar desktop environment. Users gain practical experience in spotting and avoiding common pitfalls.
+- **More Topics:**  
+    Doors95 could cover more cybersecurity areas—like privacy, digital citizenship, and advanced threats—tailored for all ages and skill levels.
 
-- **Extensible:**  
-    The modular architecture makes it easy to add new missions, apps, and threat scenarios.
+- **New Missions:**  
+    Thanks to its modular setup, it’s easy to add new scenarios, such as social engineering, ransomware, or safe online shopping.
 
-- **Engaging Experience:**  
-    The retro Windows 95 aesthetic, combined with interactive missions and an AI assistant, creates an engaging and memorable learning platform.
+- **Minigames:**  
+    Ideas include:
+    - Spotting fake browser extensions
+    - Creating strong passwords to block brute-force attacks
+    - Sorting out phishing emails
+    - Deciding what to do with mystery USB drives
+    - Racing to install software updates before threats hit
+
+- **Community Content:**  
+    In the future, users could create and share their own missions or apps, keeping things fresh and relevant.
+
+- **Training Integration:**  
+    Doors95 could be used in real training programs, with progress tracking and certificates for schools or companies.
+
+All these ideas aim to make Doors95 even more useful and fun for learning about cybersecurity.
 
 ## Credits
 
