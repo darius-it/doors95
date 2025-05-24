@@ -1,15 +1,17 @@
 <template ref="Browser">
     <div class="bg">
         <div class="top-bar w-full min-w-[60vh]">
-            <ul>
-                <li v-for="p in open_pages">
-                    <button @click="makeActive(p.name)">
-                        {{p.name}}
-                    </button>
-                    <button @click="close(p.name)">
-                        X
-                    </button>
-                </li>
+            <ul class="flex flex-row items-center gap-1">
+                <div class="flex flex-row items-center gap-1 cursor-pointer">
+                    <li v-for="p in open_pages" :key="p.name" class="border border-gray-400 pl-2 rounded-md flex flex-row items-center gap-2">
+                        <button @click="makeActive(p.name)">
+                            {{p.name}}
+                        </button>
+                        <button @click="close(p.name)" class="font-sans text-xl hover:text-red-500 cursor-pointer p-1.5">
+                            x
+                        </button>
+                    </li>
+                </div>
                 <li>
                     <button @click="open('Google')">
                         +
@@ -106,13 +108,12 @@ ul {
 
 li {
   float: left;
-  margin: 5px
+  margin: 3px
 }
 .top-bar{
     background-color: lightgray;
     box-shadow: 0px 4px dimgray;
     border-radius: 5px;
-    padding: 5px;
 }
 .web-page{
     margin:5px;
