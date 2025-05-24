@@ -243,8 +243,7 @@ function handleClick(id) {
   }
   else if (id == 6) {
     missionsStore.triggerEvent("phishing2")
-    payloadStore.bobr_kurwa = true
-    missionsStore.addInfectionLevel(30)
+    payloadStore.ransomware = true
   }
 }
 </script>
