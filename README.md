@@ -26,4 +26,4 @@ After you cloned the repository, first install dependencies using `pnpm i`.
 - To build for production, run `pnpm generate`
 
 ## Credits
-Beavers Testing in Production team @ Hackaburg: Lev, Darius, Marinus, Matej, Jonathan
+Beavers Testing in Production team @ Hackaburg 2025: Lev, Darius, Marinus, Matej, Jonathan
