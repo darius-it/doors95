@@ -68,7 +68,7 @@ function startInstall() {
       
       // Install Minecraft + Virus
       windowState.installableSoftware.minecraft = true;
-      missionState.addInfectionLevel(25);
+      missionState.addInfectionLevel(30);
       payloadsState.antRunner = true;
 
     } else {
