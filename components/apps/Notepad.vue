@@ -17,7 +17,8 @@
 import { ref } from 'vue'
 const text = ref('')
 </script>
-<style>
+
+<style scoped>
 body {
   margin: 0;
   background: teal;
