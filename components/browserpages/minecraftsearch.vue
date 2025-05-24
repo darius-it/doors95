@@ -22,26 +22,26 @@
 import emitter from "@/components/misc/eventHandler"
 
 const pages = ref([
-    {name:"Minecraft", url:"minceraft.com", description:"Download Minecraft for Free now!"},
-    {name:"Minecraft Online", url:"minecraft-online.com", description:"Play Minecraft online"},
-    {name:"Minecraft", url:"minecraft.com", description:"Download Minecraft"},
-    {name:"Minecraft", url:"minecroft.com", description:"Download Minecraft from the original page"},
+    {name:"Minecraft - Download", url:"https://www.minceraft.com", description:"Download Minecraft for Free now!"},
+    {name:"Minecraft Online", url:"https://www.minecraft-online.com", description:"Play Minecraft online in an interactive iframe. No Signup required!"},
+    {name:"Minecraft", url:"https://www.minecraft.com", description:"The newest Version of Minecraft."},
+    {name:"Microsoft - Minecraft", url:"https://www.minecroft.com", description:"Download Minecraft from the original page."},
 ])
 
 
 function openPageLink(link){
     
     switch (link) {
-        case "minecraft.com":
+        case "https://www.minecraft.com":
             emitter.emit("openPage", "Minecraft")
             break
-        case "minceraft.com":
+        case "https://www.minceraft.com":
             emitter.emit("openPage", "Minceraft")
             break
-        case "minecroft.com":
+        case "https://www.minecroft.com":
             emitter.emit("openPage", "Minecroft")
             break
-        case "minecraft-online.com":
+        case "https://www.minecraft-online.com":
             emitter.emit("openPage", "Minecraft Online")
             break
         default:
