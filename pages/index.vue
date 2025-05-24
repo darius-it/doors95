@@ -52,6 +52,11 @@
       @close="closeWindow">
       <AppsScamcyclopedia />
     </DesktopWindow>
+    <DesktopWindow name="Notepad" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsNotepad />
+    </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -85,7 +90,12 @@
           class="flex flex-col items-center min-w-[16px] flex-1">
           <img src="/icons/books.png" alt="Books Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
         </DesktopIcon>
+        <DesktopIcon windowName="Notepad" @openWindow="(windowName) => openWindow(windowName)"
+          class="flex flex-col items-center min-w-[16px] flex-1">
+          <img src="/images/notepad.png" alt="Notepad Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
+        </DesktopIcon>
       </div>
+
       <!-- Right-aligned icon -->
       <div class="flex flex-row gap-4 items-center mr-2">
         <DesktopIcon v-if="currentlyOpenWindows.installableSoftware.minecraft" windowName="Minecraft" @openWindow="(windowName) => openWindow(windowName)"
