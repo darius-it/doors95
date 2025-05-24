@@ -30,6 +30,7 @@ const pages = ref([
     {name:"Minecraft Online", url:"https://www.minecraft-online.com", description:"Play Minecraft online in an interactive iframe. No Signup required!"},
     {name:"Minecraft", url:"https://www.minecraft.com", description:"The newest Version of Minecraft."},
     {name:"Microsoft - Minecraft", url:"https://www.minecroft.com", description:"Download Minecraft from the original page."},
+    {name:"Minecraft - Chip", url:"https://www.chip.com/Minecraft", description:""}
 ])
 
 onMounted(() => {
