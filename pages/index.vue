@@ -84,9 +84,9 @@
       </div>
     </div>
 
-    <div id="row-2" class="flex flex-row justify-between items-center w-full gap-4">
+    <div id="row-2" class="flex flex-row justify-between items-center w-full gap-4 ml-1">
       <!-- Left-aligned icons -->
-      <div class="flex flex-row gap-8 items-center">
+      <div class="flex flex-row gap-12 items-center">
         <DesktopIcon windowName="Antivirus" @openWindow="(windowName) => openWindow(windowName)"
           class="flex flex-col items-center min-w-[16px] flex-1">
           <img src="/icons/antivirus.png" alt="Antivirus Icon" class="w-14 h-14 mb-[0.3rem] mt-[0.1rem]" />
