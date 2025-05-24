@@ -122,7 +122,7 @@
     <!-- Skippy Input Overlay (z-[9600]) -->
     <SkippyInput v-if="skippyInputVisible" style="z-index:9600; position:fixed; inset:0;" />
     <!-- Underlay Window in lower right -->
-    <div v-if="clippyVisible" class="fixed bottom-4 right-4 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
+    <div v-if="clippyVisible" class="fixed bottom-10 right-6 z-[9000] pointer-events-none" style="width: 340px; height: 180px;">
       <div class="pointer-events-auto flex flex-row items-end h-full justify-end">
         <!-- Speech bubble left of Clippy, vertically centered -->
         <div class="flex items-center mr-2" style="height: 14rem;">
