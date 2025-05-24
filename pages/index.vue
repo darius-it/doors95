@@ -52,6 +52,11 @@
       @close="closeWindow">
       <AppsScamcyclopedia />
     </DesktopWindow>
+    <DesktopWindow name="Hackaburg" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsHackaburg />
+    </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -93,6 +98,13 @@
           <IconMinecraft />
         </DesktopIcon>
       </div>
+    </div>
+
+    <div class="absolute bottom-20 left-5">
+      <DesktopIcon windowName="Hackaburg" @openWindow="(windowName) => openWindow(windowName)"
+        class="flex flex-col items-center min-w-[16px]">
+        <img src="/icons/hackaburg.png" alt="Hackaburg Icon" class="w-16 h-16 mb-1" />
+      </DesktopIcon>
     </div>
 
     <!-- Skippy Start Overlay (z-[9500]) -->
