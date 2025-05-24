@@ -26,11 +26,11 @@ import { useMissionsStore } from '~/stores/missions'
 const missionsStore = useMissionsStore()
 
 const pages = ref([
-    {name:"Minecraft - Download", url:"https://www.minceraft.com", description:"Download Minecraft for Free now!"},
-    {name:"Minecraft Online", url:"https://www.minecraft-online.com", description:"Play Minecraft online in an interactive iframe. No Signup required!"},
-    {name:"Minecraft", url:"https://www.minecraft.com", description:"The newest Version of Minecraft."},
-    {name:"Microsoft - Minecraft", url:"https://www.minecroft.com", description:"Download Minecraft from the original page."},
-    {name:"Minecraft - Chip", url:"https://www.chip.com/Minecraft", description:""}
+    {name:"Minecraft - Download", url:"https://www.minceraft.net/download", description:"Download Minecraft for Free now!"},
+    {name:"Minecraft Online", url:"https://www.minecraft-online/launcher.com", description:"Play Minecraft online in an interactive iframe. No Signup required!"},
+    {name:"Minecraft", url:"https://www.launcher.minecraft.net/download", description:"The newest Version of Minecraft."},
+    {name:"Microsoft - Minecraft", url:"https://www.launcher.minecroft.com", description:"Download Minecraft from the original page."},
+    {name:"Minecraft - Chip", url:"https://www.chip.de/Minecraft", description:""}
 ])
 
 onMounted(() => {
