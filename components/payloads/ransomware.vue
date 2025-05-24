@@ -51,7 +51,7 @@ const showHelp = ref(false);
   text-align: center;
   border: 5px solid #c0c0c0;
   user-select: none;
-  z-index: 10000000000000000
+  z-index: 100004
 }
 
 h1 {

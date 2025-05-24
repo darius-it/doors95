@@ -59,6 +59,6 @@ onMounted(() => {
   top:0;
   left:0;
   background:transparent;
-  z-index: 1000000000000000000000
+  z-index: 100002
 }
 </style>

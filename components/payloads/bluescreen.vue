@@ -60,7 +60,7 @@ onMounted(() => {
   position: absolute; /* for positioning the image */
   top:0;
   left:0;
-  z-index: 1000000000000000000000000
+  z-index: 100005
 }
 
 .message h1 {
