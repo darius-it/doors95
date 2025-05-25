@@ -17,7 +17,7 @@
       >
         <span class="font-bold tracking-widest">{{ name }}</span>
         <button
-          class="bg-[#c0c0c0] border-2 border-white border-outset text-black w-6 h-6 text-base leading-5 text-center cursor-pointer ml-2 rounded-[2px] font-['MS_Sans_Serif',Arial,sans-serif] transition-colors duration-100 hover:bg-red-600 hover:text-white"
+          class="bg-[#c0c0c0] border-2 border-white outset-border text-black w-6 h-6 text-base leading-5 text-center cursor-pointer ml-2 rounded-[2px] font-['MS_Sans_Serif',Arial,sans-serif] transition-colors duration-100 hover:bg-red-600 hover:text-white"
           @click="emit('close', name)"
           aria-label="Close"
         >
@@ -86,3 +86,9 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style scoped>
+.outset-border {
+  border: 2px outset #fff;
+}
+</style>
