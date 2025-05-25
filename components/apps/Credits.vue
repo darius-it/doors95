@@ -6,7 +6,7 @@
             <h2>Team</h2>
             <ul>
                 <li><a href="https://github.com/darius-it" target="_blank" rel="noopener">Darius</a> (hello@darius-it.me)</li>
-                <li><a href="https://github.com/kaifireborn" target="_blank" rel="noopener">Lev</a></li>
+                <li><a href="https://github.com/kaifireborn" target="_blank" rel="noopener">Lev</a> (levsoltys@gmail.com)</li>
                 <li><a href="https://github.com/m4r1nus" target="_blank" rel="noopener">Marinus</a></li>
                 <li><a href="https://github.com/matejminar-jpg" target="_blank" rel="noopener">Matej</a> (matejdavidminar@gmail.com)</li>
                 <li><a href="https://github.com/joniprog" target="_blank" rel="noopener">Jonathan</a></li>
