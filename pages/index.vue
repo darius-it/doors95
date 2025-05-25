@@ -130,7 +130,7 @@
         <div class="flex items-center mr-2" style="height: 14rem;">
           <ClippySpeechBubble ref="clippyBubble" />
         </div>
-        <img src="/textures/clippy_placeholder.webp" alt="Clippy"
+        <img src="/textures/skippy.png" alt="Clippy"
           class="w-[14rem] h-[14rem] mb-2 cursor-pointer transition-transform duration-300"
           :style="{ transform: `scale(${clippyScale})` }" @click="showClippyBubble" />
       </div>
