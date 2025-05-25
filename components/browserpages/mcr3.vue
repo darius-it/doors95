@@ -61,7 +61,7 @@ function startDownload(index) {
   padding: 40px 20px;
   text-align: center;
   background: #1e1e1e;
-  min-height: 100vh;
+  min-height: 55vh;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

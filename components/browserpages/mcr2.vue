@@ -58,7 +58,7 @@ const startDownload = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 55vh;
   background: linear-gradient(145deg, #1e1e1e, #2b2b2b);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -146,6 +146,8 @@ h1 {
 }
 
 .wallpaper{
-    background-image: url("/images/minecraft2.png")
+    background-image: url("/images/minecraft2.png");
+    background-size: cover;
+    background-position: center;
 }
 </style>

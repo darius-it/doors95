@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center px-4 wallpaper">
+  <div class="min-h-[55vh] flex items-center justify-center px-4 wallpaper">
     <div
       class="bg-white shadow-lg p-8 rounded-lg w-full max-w-md text-center select-none"
       style="user-select: none;"
@@ -78,7 +78,9 @@ button.pixel-font {
   text-shadow:
     1px 1px 0 #000;
 }
+
 .wallpaper{
-     background-image: url("/images/wallpaper.png")
+    background-image: url("/images/wallpaper.png");
+    background-size: cover;
 }
 </style>
