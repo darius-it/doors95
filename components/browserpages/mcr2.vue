@@ -146,6 +146,6 @@ h1 {
 }
 
 .wallpaper{
-    background-image: url("/images/minecraft2.jpg")
+    background-image: url("/images/minecraft2.png")
 }
 </style>

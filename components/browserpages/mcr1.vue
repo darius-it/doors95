@@ -79,6 +79,6 @@ button.pixel-font {
     1px 1px 0 #000;
 }
 .wallpaper{
-     background-image: url("/images/wallpaper.jpg")
+     background-image: url("/images/wallpaper.png")
 }
 </style>
