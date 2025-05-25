@@ -6,21 +6,25 @@
   >
     <div
       ref="el"
-      class="window95 pointer-events-auto"
+      class="absolute min-w-[400px] min-h-[220px] bg-[#c0c0c0] border-2 border-white border-b-[#808080] border-r-[#808080] shadow-[4px_4px_0_#0008] rounded-none select-none pointer-events-auto"
       :style="style"
       @click="$emit('clickInsideWindow', name)"
     >
       <div
-        class="window95-titlebar flex items-center justify-between"
+        class="flex items-center justify-between bg-[#000181] text-white px-2 py-1 cursor-move font-bold tracking-wider text-[10px] font-['Windows_95',Arial,sans-serif] border-b-2 border-white rounded-t-[2px]"
         ref="dragHandle"
         style="cursor: move"
       >
-        <span class="window95-title">{{ name }}</span>
-        <button class="window95-close" @click="emit('close', name)" aria-label="Close">
+        <span class="font-bold tracking-widest">{{ name }}</span>
+        <button
+          class="bg-[#c0c0c0] border-2 border-white border-outset text-black w-6 h-6 text-base leading-5 text-center cursor-pointer ml-2 rounded-[2px] font-['MS_Sans_Serif',Arial,sans-serif] transition-colors duration-100 hover:bg-red-600 hover:text-white"
+          @click="emit('close', name)"
+          aria-label="Close"
+        >
           ✕
         </button>
       </div>
-      <div class="window95-content">
+      <div class="p-1 h-[calc(100%-36px)] overflow-auto">
         <slot />
       </div>
     </div>
@@ -82,61 +86,3 @@ onMounted(async () => {
   }
 })
 </script>
-
-<style scoped>
-.window95 {
-  position: absolute;
-  min-width: 400px;
-  min-height: 220px;
-  background: #c0c0c0;
-  border: 2px solid #fff;
-  border-bottom-color: #808080;
-  border-right-color: #808080;
-  box-shadow: 4px 4px 0 #0008;
-  border-radius: 0;
-  user-select: none;
-}
-
-.window95-titlebar {
-  background: #000181;
-  color: #fff;
-  padding: 4px 8px;
-  cursor: move;
-  font-family: 'Windows 95', Arial, sans-serif;
-  font-size: 10px;
-  border-bottom: 2px solid #fff;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
-
-.window95-title {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.window95-close {
-  background: #c0c0c0;
-  border: 2px outset #fff;
-  color: #000;
-  width: 24px;
-  height: 24px;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  cursor: pointer;
-  margin-left: 8px;
-  border-radius: 2px;
-  font-family: 'MS Sans Serif', Arial, sans-serif;
-  transition: background 0.1s;
-}
-.window95-close:hover {
-  background: #ff0000;
-  color: #fff;
-}
-
-.window95-content {
-  padding: 4px;
-  height: calc(100% - 36px);
-  overflow: auto;
-}
-</style>
