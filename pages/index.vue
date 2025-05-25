@@ -62,6 +62,11 @@
       @close="closeWindow">
       <AppsNotepad />
     </DesktopWindow>
+    <DesktopWindow name="Credits" :lastClickedWindow="currentlyOpenWindows.lastClickedWindow"
+      :currentlyOpenWindows="currentlyOpenWindows.openWindows" @clickInsideWindow="setLastClickedWindow"
+      @close="closeWindow">
+      <AppsCredits />
+    </DesktopWindow>
 
     <div id="row-1" class="flex flex-row justify-between items-center gap-4 w-full">
       <!-- Left-aligned icons -->
@@ -110,10 +115,14 @@
       </div>
     </div>
 
-    <div class="absolute bottom-20 left-5">
+    <div class="absolute bottom-20 left-5 flex flex-row gap-10 items-center">
       <DesktopIcon windowName="Hackaburg" @openWindow="(windowName) => openWindow(windowName)"
         class="flex flex-col items-center min-w-[16px]">
         <img src="/icons/hackaburg.png" alt="Hackaburg Icon" class="w-16 h-16 mb-1" />
+      </DesktopIcon>
+      <DesktopIcon windowName="Credits" @openWindow="(windowName) => openWindow(windowName)"
+        class="flex flex-col items-center min-w-[16px]">
+        <img src="/icons/group.png" alt="Group Icon" class="w-16 h-16 mb-1" />
       </DesktopIcon>
     </div>
 
