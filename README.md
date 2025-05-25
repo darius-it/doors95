@@ -5,6 +5,10 @@ You are placed onto a simulated computer desktop inspired by Windows 95 and are 
 
 The project is hosted and you can try it out here: https:/doors95.de
 
+## Showcase
+![Screenshot 2025-05-24 at 08-27-13 ](https://github.com/user-attachments/assets/f1b8bb8b-3878-46a7-b411-9c7a7afc6195)
+![Screenshot 2025-05-24 at 08-28-09 ](https://github.com/user-attachments/assets/8483a627-f560-4f04-a7d0-9579294a9480)
+
 ## Impact
 Doors95 raises cybersecurity awareness by simulating real-world threats in a fun, interactive environment. Users learn to spot and avoid risks like phishing and unsafe downloads, making it accessible for all experience levels. 
 
@@ -19,10 +23,6 @@ Moreover, it raises awareness about the importance of not trusting everything on
     Non-profit organizations and government agencies can use the game to educate the public about online safety and security.
 - **Individual Learning:**
     Anyone interested in improving their cybersecurity knowledge can play Doors95 to learn about threats and how to protect themselves online.
-
-## Showcase
-![Screenshot 2025-05-24 at 08-27-13 ](https://github.com/user-attachments/assets/f1b8bb8b-3878-46a7-b411-9c7a7afc6195)
-![Screenshot 2025-05-24 at 08-28-09 ](https://github.com/user-attachments/assets/8483a627-f560-4f04-a7d0-9579294a9480)
 
 ## Architecture
 
